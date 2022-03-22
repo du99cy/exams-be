@@ -12,7 +12,7 @@ from datetime import datetime, timedelta
 from .helper import SendEmail
 from fastapi.encoders import jsonable_encoder
 import json
-
+import requests
 api_router = APIRouter(tags=['Auth'], prefix="/auth")
 
 
@@ -138,3 +138,25 @@ async def forgot_password(email_text:str):
     
     email_sent_result = await send_email_ins.send()
     return email_sent_result
+
+@api_router.post('/facebook-authenticate')
+async def authenticate_FB(access_token:str = Body(...)):
+    #link to get my information in facebook with acces token 
+    url = f'https://graph.facebook.com/v8.0/me?access_token={access_token}'
+    user_infor = requests.get(url).json()
+    print("url",url)
+    print("user",user_infor)
+    return user_infor
+    # if user_infor:
+    #     #get collection from mongodb
+    #     user_collection = await get_collection_client("user")
+    #     #check user exits
+    #     user_exists = await user_collection.find_one({"user_facebook_id":user_infor["id"]})
+
+    #     if not user_exists:
+    #         user_id = ObjectId()
+    #         #parse to model
+    #         user_model = User()
+            
+    # else:
+    #     raise HTTPException(status_code=400,detail="Expires token")
