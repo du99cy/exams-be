@@ -56,3 +56,7 @@ ALGORITHM = "HS256"
 ACCESS_TOKEN_EXPIRE_MINUTES = 60
 
 AVATAR_PIC_DEFAULT = 'https://scontent.fhan2-1.fna.fbcdn.net/v/t1.30497-1/84628273_176159830277856_972693363922829312_n.jpg?stp=c29.0.100.100a_dst-jpg_p100x100&_nc_cat=1&ccb=1-5&_nc_sid=12b3be&_nc_ohc=xnSkgWwaqWEAX-pGLrI&_nc_ht=scontent.fhan2-1.fna&edm=AHgPADgEAAAA&oh=00_AT88FUWb-_ldjL7Z4T73AzvQa1FDi5We5Kr-TpszX_9tRg&oe=62619199'
+
+CONFIRM_TOKEN_URL = "https://localhost:4200/confirm-token/{token}"
+
+FACEBOOK_GRAPH_API_URL = 'https://graph.facebook.com/v8.0/me?fields=first_name,last_name,picture&access_token={access_token}'

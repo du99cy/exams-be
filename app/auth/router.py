@@ -1,4 +1,5 @@
 from fastapi import APIRouter, Body, HTTPException
+from core.constants import CONFIRM_TOKEN_URL,FACEBOOK_GRAPH_API_URL
 
 from core.constants import TEMPLATE_EMAIL, FORGOT_PASSWORD_EMAIL_TEMP
 from .dependencies import *
@@ -85,7 +86,7 @@ async def sign_up(user_data: UserSignUp = Body(...)) -> Any:
 
     # send email
     temp = TEMPLATE_EMAIL.format(user_name=user_data.first_name + " " + user_data.last_name,
-                                 activate_link=f"http://localhost:4200/confirm-token/{str(token)}")
+                                 activate_link=CONFIRM_TOKEN_URL.format(token=str(token)))
     send_email_ins = SendEmail(temp, user_data.email)
 
     email_sent_result = await send_email_ins.send()
@@ -155,7 +156,7 @@ async def authenticate_FB(access_token: str = Body(...)):
     user_collection = await get_collection_client("user")
 
     # link to get my information in facebook with acces token
-    url = f'https://graph.facebook.com/v8.0/me?fields=first_name,last_name,picture&access_token={access_token}'
+    url = FACEBOOK_GRAPH_API_URL.format(access_token=access_token)
     user_data_from_fb_api = requests.get(url).json()
     # value that user_infor return
     #first_name: "Dự"
