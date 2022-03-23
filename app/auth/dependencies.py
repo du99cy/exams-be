@@ -10,7 +10,7 @@ from fastapi.security import (
 from jose import JWTError, jwt
 from passlib.context import CryptContext
 from pydantic import BaseModel, ValidationError
-from .models import User,UserInDB,TokenData,Token
+from .models import MailUser,UserInDB,TokenData,Token
 from core.constants import SECRET_KEY,ALGORITHM,ACCESS_TOKEN_EXPIRE_MINUTES
 from core.database.mongodb import get_collection_client
 import json
@@ -69,7 +69,7 @@ async def authenticate_user(email: str, password: str):
     if not verify_password(password, user.hashed_password):
         return False
     
-    return User(**user.dict())
+    return MailUser(**user.dict())
 
 
 def create_access_token(data: dict, expires_delta: Optional[timedelta] = None):
@@ -103,7 +103,7 @@ async def get_current_user(
             raise credentials_exception
         
         token_scopes = payload.get("scopes", [])
-        user_model = User(**user)
+        user_model = MailUser(**user)
         
         token_data = TokenData(scopes=token_scopes, user=user_model)
         
@@ -121,8 +121,8 @@ async def get_current_user(
 
 
 async def get_current_active_user(
-    current_user: User = Security(get_current_user, scopes=[])
-):
+    current_user: MailUser = Security(get_current_user, scopes=[])
+) -> MailUser:
     if current_user.locked:
         raise HTTPException(status_code=400, detail="Inactive user")
     return current_user

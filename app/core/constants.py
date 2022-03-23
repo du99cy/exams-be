@@ -33,7 +33,7 @@ TEMPLATE_EMAIL = """
         </html>
 """
 
-FORGOT_PASSWORD_EMAIL_TEMP="""
+FORGOT_PASSWORD_EMAIL_TEMP = """
     <html>
         <body>
          
@@ -48,9 +48,11 @@ FORGOT_PASSWORD_EMAIL_TEMP="""
         </body>
         </html>
 """
-#for auth
+# for auth
 # to get a string like this run:
 # openssl rand -hex 32
 SECRET_KEY = "09d25e094faa6ca2556c818166b7a9563b93f7099f6f0f4caa6cf63b88e8d3e7"
 ALGORITHM = "HS256"
 ACCESS_TOKEN_EXPIRE_MINUTES = 60
+
+AVATAR_PIC_DEFAULT = 'https://scontent.fhan2-1.fna.fbcdn.net/v/t1.30497-1/84628273_176159830277856_972693363922829312_n.jpg?stp=c29.0.100.100a_dst-jpg_p100x100&_nc_cat=1&ccb=1-5&_nc_sid=12b3be&_nc_ohc=xnSkgWwaqWEAX-pGLrI&_nc_ht=scontent.fhan2-1.fna&edm=AHgPADgEAAAA&oh=00_AT88FUWb-_ldjL7Z4T73AzvQa1FDi5We5Kr-TpszX_9tRg&oe=62619199'
