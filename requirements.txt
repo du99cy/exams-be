@@ -1,3 +1,4 @@
+aiofiles==0.8.0
 aioredis==2.0.1
 aiosmtplib==1.1.6
 anyio==3.5.0
