@@ -1,7 +1,7 @@
 from fastapi import APIRouter,Depends,Body,Path,Query
 from core.database.mongodb import get_collection_client
 from auth.dependencies import get_current_active_user
-from .model import Question
+from .model import Question, QuestionForStudent
 from ..config import CONTENT_COLLECTION_NAME, CREDENTIALS_EXCEPTION,QUESTION_COLLECTION_NAME,COURSE_COLLECTION_NAME
 from bson.objectid import ObjectId
 from core.helpers_func import responseModel
@@ -40,7 +40,7 @@ async def get_all_question_via_content_id(content_id:str = Path(...),current_use
     #if mode is preview
     question_cursor = question_collection.find({"content_id":content_id,"instructor_id":current_user.id,"is_deleted":False})
     async for question in question_cursor:
-        question_model = Question(**question)
+        question_model = QuestionForStudent(**question)
         question_list.append(question_model)
     
     return responseModel(data=question_list)
