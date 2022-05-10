@@ -7,16 +7,19 @@ from core.helpers_func import responseModel
 from auth.dependencies import get_current_active_user
 from .model import Resource
 from core.database.mongodb import get_collection_client
-from ..config import CONTENT_COLLECTION_NAME, COURSE_COLLECTION_NAME, RESOURSE_COLLECTION_NAME, CREDENTIALS_EXCEPTION
+from ..config import CONTENT_COLLECTION_NAME, COURSE_COLLECTION_NAME, RESOURSE_COLLECTION_NAME, CREDENTIALS_EXCEPTION,RESOURSE_FILE_NAME,STATIC_FILE
 import time
 from fastapi.responses import FileResponse
-
+from bson.objectid import ObjectId
 api_router = APIRouter(tags=["Resourse"], prefix="/resourse")
 
-
+# there is 2 mode :private file and public file :
+#private file is file that can authen before get file
+#public file is file that everyone can get it
 @api_router.post("/uploadFile", dependencies=[Depends(get_current_active_user)])
-async def uploadFile(file: UploadFile = File(...)):
-    file_path = os.path.join("resourse-files", file.filename)
+async def uploadFile(file: UploadFile = File(...),mode:str=Query("private")):
+    folder_name = STATIC_FILE if mode == 'public' else RESOURSE_FILE_NAME
+    file_path = os.path.join(folder_name, file.filename)
     async with aiofiles.open(file_path, 'wb+') as out_file:
         while content := await file.read(1024):  # async read chunk
             await out_file.write(content)  # async write chunk
@@ -62,3 +65,20 @@ async def get_video_of_content(content_id: str = Path(...), mode: str | None = Q
     # mode is for student then check user have enrolled in that course
 
     return file_path
+#get file response
+@api_router.get("/{resourse_id}",response_class=FileResponse)
+async def get_file_response(resourse_id:str =Path(...), current_user=Depends(get_current_active_user),mode:str = Query('preview')):
+    #get collections
+    resourse_collection = await get_collection_client(RESOURSE_COLLECTION_NAME)
+    #initilize
+    query = {"_id":ObjectId(resourse_id)}
+    #if it is instructor
+    if mode == 'preview':
+        query.update({"instructor_id": current_user.id})
+    else:
+    #just a student
+        pass
+    resourse_data = await resourse_collection.find_one(query)
+    return resourse_data["file"]
+    
+    

@@ -12,3 +12,6 @@ CREDENTIALS_EXCEPTION = HTTPException(
         detail="Could not validate credentials",
         headers={"WWW-Authenticate": "Bearer"},
     )
+
+RESOURSE_FILE_NAME = 'resourse-files'
+STATIC_FILE = 'static-files'
