@@ -1,5 +1,6 @@
 from fastapi import HTTPException,status
 
+USER_COLLECTION = 'user'
 COURSE_COLLECTION_NAME = 'course'
 CONTENT_COLLECTION_NAME = 'content'
 RESOURSE_COLLECTION_NAME = 'resourse'

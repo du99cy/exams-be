@@ -14,6 +14,8 @@ from .helper import SendEmail
 from fastapi.encoders import jsonable_encoder
 import json
 import requests
+from .models import User
+from routers.config import USER_COLLECTION
 api_router = APIRouter(tags=['Auth'], prefix="/auth")
 
 
@@ -47,6 +49,16 @@ async def read_users_me(current_user: MailUser = Depends(get_current_active_user
 
     return responseModel(data=current_user.dict())
 
+@api_router.patch("/users/me")
+async def update_users_me(current_user=Depends(get_current_active_user),userUpdateBody:User = Body(...)):
+    #get collections
+    user_collection = await get_collection_client(USER_COLLECTION)
+    
+    body_update_user_dict = userUpdateBody.dict(exclude_unset=True)
+    
+    await user_collection.update_one({"_id":ObjectId(current_user.id)},{"$set":body_update_user_dict},False)
+    
+    return responseModel()
 
 @api_router.post("/sign-up")
 async def sign_up(user_data: UserSignUp = Body(...)) -> Any:

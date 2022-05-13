@@ -6,7 +6,7 @@ from ..config import CREDENTIALS_EXCEPTION
 async def get_course_infor(query:dict,projection:dict):
      # get collections
     course_collection = await get_collection_client(COURSE_COLLECTION_NAME)
-
+    
     goals_result_dict = await course_collection.find_one(query,projection)
     if not goals_result_dict:
          raise CREDENTIALS_EXCEPTION

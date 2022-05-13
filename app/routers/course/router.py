@@ -97,9 +97,38 @@ async def get_goals(current_user=Depends(get_current_active_user), course_id: st
                       "category": 1, "description": 1, "img": 1,"img_name":1}
     elif mode =="price":
         projection = {"price": 1}
+    elif mode == "goals":
+        projection = {"who_course_is_for": 1,
+                  "prerequisites": 1, "knowleages_will_learn": 1}
     else:
         projection = {}
 
     course_infor_data = await get_course_infor(query, projection)
 
     return responseModel(data=course_infor_data)
+
+
+@course_router.get("/{course_id}/review")
+async def course_review(course_id:str = Path(...),current_user=Depends(get_current_active_user)):
+    #get collection
+    course_collection = await get_collection_client(COURSE_COLLECTION_NAME)
+    
+    #find course
+    course_infor = await course_collection.find_one({"id":course_id, "instructor_id": current_user.id})
+    del course_infor["_id"]
+    #check all of null fields in course  
+    keys_of_null_value = { k:None for k,v in course_infor.items()}
+    # for k,v in course_infor.items():
+    #     if v is None:
+    #         keys_of_null_value[k] = v
+    #     if isinstance(v,list) and len(v) == 0:
+    #         keys_of_null_value[k] = "len is 0"
+    
+    
+    return responseModel(data= keys_of_null_value)
+
+
+
+
+    
+    
