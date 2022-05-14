@@ -1,6 +1,8 @@
-from fastapi import FastAPI
+
 from fastapi_mail import MessageSchema,FastMail
-from typing import List
+
+from core.database.mongodb import get_collection_client
+
 from core.constants import TEMPLATE_EMAIL,EMAIL_CONFIG
 from core.helpers_func import responseModel
 from pydantic import EmailStr
@@ -25,4 +27,3 @@ class SendEmail():
         await fm.send_message(message)
         
         return responseModel(message="email has been sent")
-    
