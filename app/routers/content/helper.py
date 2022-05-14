@@ -9,6 +9,6 @@ async def get_content(course_id:str):
     content_collection = await get_collection_client(CONTENT_COLLECTION_NAME)
     content_cursor = content_collection.find({"course_id":course_id})
     async for content in content_cursor:
-        content_model = ContentDisplayForUser(**content)
+        content_model = ContentDisplayForUser(**content,id=str(content["_id"]))
         content_all.append(content_model.dict())
     return content_all

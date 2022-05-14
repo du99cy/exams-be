@@ -10,4 +10,4 @@ async def get_user_information(user_id:str):
     #function for get instructor information
     
     user = await user_collection.find_one({"_id":ObjectId(user_id)})
-    return User(**user)
+    return User(**user,id=str(user["_id"]))

@@ -149,6 +149,6 @@ async def get_course_detail(request: Request, course_id: str = Path(...)):
         user_model = await get_user_information(course_model.instructor_id)
         yield json.dumps({"data_name":"user","data": user_model.dict()})
         contents = await get_content(course_id=course_model.id)
-        yield json.dumps({"data_name":"contents","data": json.dumps(contents)})
+        yield json.dumps({"data_name":"contents","data": contents})
 
     return EventSourceResponse(event_generator())
