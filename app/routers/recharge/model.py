@@ -6,7 +6,7 @@ import hashlib
 import hmac
 import urllib.parse
 
-class Order(BaseModel):
+class Recharge(BaseModel):
     order_type: str | None = None
     order_id: str | None = None
     amount: int | None = None

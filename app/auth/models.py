@@ -13,6 +13,13 @@ class User(BaseModel):
     last_name: Optional[str] = None
     locked: Optional[bool] = False
     avatar_pic: Optional[str] = Field(AVATAR_PIC_DEFAULT)
+    headline: Optional[str] = None
+    biography: Optional[str] = None
+    amount_of_money: Optional[float] = 0
+    facebook_link:Optional[str] = None
+    youtube_link: Optional[str] = None
+    website_link: Optional[str] = None
+    twitter_link: Optional[str] = None
     role_id: Optional[str] = None
 
 

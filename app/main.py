@@ -5,7 +5,7 @@ from auth.router import api_router as AuthRouter
 from core.database.mongodb import connect_db,close_db
 from fastapi.middleware.cors import CORSMiddleware
 from routers import api_router_list
-
+from fastapi.staticfiles import StaticFiles
 app = FastAPI()
 
 #add startup and shutdown event
@@ -19,9 +19,7 @@ for router in api_router_list:
     app.include_router(router["name"])
 
 #CORS
-
 origins = [
-    
     "http://localhost:4200",
     "https://localhost:4200"
 ]
@@ -34,6 +32,9 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
+#mounting static file resourse
+app.mount("/static-files", StaticFiles(directory="static-files"), name="staticFile")
 
 if __name__ == '__main__':
     uvicorn.run("main:app",host='127.0.0.1',port=8000,reload=True)
+    

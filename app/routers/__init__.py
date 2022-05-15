@@ -6,7 +6,8 @@ from .question import QuestionRouter
 from .function import FunctionRouter
 from .testcase import TestcaseRouter
 from .coding import CodingRouter
-from .order import OrderRouter
+from .recharge import RechargeRouter
+from .transaction import TransactionRouter
 api_router_list = [
     {"name":TestRouter},
     {"name":course_router},
@@ -16,5 +17,6 @@ api_router_list = [
     {"name":FunctionRouter},
     {"name":TestcaseRouter},
     {"name":CodingRouter},
-    {"name": OrderRouter}
+    {"name": RechargeRouter},
+    {"name": TransactionRouter}
 ]

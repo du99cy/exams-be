@@ -1,18 +1,19 @@
 import datetime
+from gzip import READ
 from fastapi import APIRouter, Body, Request, Path
 from core.constants import VNPAY_HASH_SECRET_KEY, VNPAY_PAYMENT_URL, VNPAY_RETURN_URL, VNPAY_TMN_CODE, LANGUAGE, ORDER_TYPE
 
 from core.helpers_func import responseModel
-from routers.order.model import Order, vnpay
-api_router = APIRouter(tags = ['Order'],prefix='/order')
+from routers.recharge.model import Recharge, vnpay
+api_router = APIRouter(tags = ['Recharge'],prefix='/recharge')
 
 @api_router.post('')
-async def payment(request: Request, order: Order = Body(...)):
+async def payment(request: Request, recharge: Recharge = Body(...)):
     order_type = ORDER_TYPE
-    order_id = order.order_id
-    amount = order.amount
-    order_desc = 'Thanh toan khoa hoc ngay: ' + datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')
-    bank_code = order.bank_code
+    order_id = recharge.order_id
+    amount = recharge.amount
+    order_desc = 'Nap tien ngay: ' + datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')
+    bank_code = recharge.bank_code
     language = LANGUAGE
     ipaddr = request.client.host
     # Build URL Payment
@@ -20,7 +21,7 @@ async def payment(request: Request, order: Order = Body(...)):
     vnp.requestData['vnp_Version'] = '2.1.0'
     vnp.requestData['vnp_Command'] = 'pay'
     vnp.requestData['vnp_TmnCode'] = VNPAY_TMN_CODE
-    vnp.requestData['vnp_Amount'] = amount * 100
+    vnp.requestData['vnp_Amount'] = amount
     vnp.requestData['vnp_CurrCode'] = 'VND'
     vnp.requestData['vnp_TxnRef'] = order_id
     vnp.requestData['vnp_OrderInfo'] = order_desc
@@ -59,14 +60,14 @@ async def postIPN(order = Body(...)):
                     print('Payment Error. Your code implement here')
 
                 # Return VNPAY: Merchant update success
-                result = {'RspCode': '00', 'Message': 'Confirm Success'}
+                result = {'RspCode': '00', 'Message': 'Cập nhật thành công'}
             else:
                 # Already Update
-                result = {'RspCode': '02', 'Message': 'Order Already Update'}
+                result = {'RspCode': '02', 'Message': 'Giao dịch đã được cập nhật'}
         else:
                 # invalid amount
-            result = {'RspCode': '04', 'Message': 'invalid amount'}
+            result = {'RspCode': '04', 'Message': 'Số tiền không hợp lệ'}
     else:
         # Invalid Signature
-        result = {'RspCode': '97', 'Message': 'Invalid Signature'}
+        result = {'RspCode': '97', 'Message': 'Chữ ký không hợp lệ'}
     return responseModel(data = result)
