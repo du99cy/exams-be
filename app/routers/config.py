@@ -8,7 +8,12 @@ RESOURSE_COLLECTION_NAME = 'resourse'
 QUESTION_COLLECTION_NAME = 'question'
 FUNCTION_COLLECTION_NAME = 'function'
 TESTCASE_COLLECTION_NAME = 'testcase'
+
+TRANSACTION_COLLECTION_NAME = 'transaction'
+
+
 COURSE_CATEGORY_NAME = 'course_category'
+
 
 CREDENTIALS_EXCEPTION = HTTPException(
         status_code=status.HTTP_401_UNAUTHORIZED,

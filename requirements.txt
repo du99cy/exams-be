@@ -13,6 +13,5 @@ python-multipart==0.0.5
 
 requests==2.27.1
 
-
-uvicorn==0.17.6
 sse-starlette==0.10.3
+uvicorn==0.17.6

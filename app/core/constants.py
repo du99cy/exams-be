@@ -61,3 +61,11 @@ AVATAR_PIC_DEFAULT = 'static-files/avatar_pic_default.jpg'
 CONFIRM_TOKEN_URL = "http://localhost:4200/confirm-token/{token}"
 
 FACEBOOK_GRAPH_API_URL = 'https://graph.facebook.com/v8.0/me?fields=first_name,last_name,picture&access_token={access_token}'
+
+VNPAY_RETURN_URL = 'http://localhost:4200/recharge'  # get from config
+VNPAY_PAYMENT_URL = 'https://sandbox.vnpayment.vn/paymentv2/vpcpay.html'  # get from config
+VNPAY_API_URL = 'https://sandbox.vnpayment.vn/merchant_webapi/merchant.html'
+VNPAY_TMN_CODE = 'OR0E60NK'  # Website ID in VNPAY System, get from config
+VNPAY_HASH_SECRET_KEY = 'XNHKXOXQACTKAFYCQMCUPSBPUJHKDNBO'
+LANGUAGE = 'vn'
+ORDER_TYPE = 'billpayment'
