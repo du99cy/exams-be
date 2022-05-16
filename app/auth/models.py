@@ -20,7 +20,7 @@ class User(BaseModel):
     youtube_link: Optional[str] = None
     website_link: Optional[str] = None
     twitter_link: Optional[str] = None
-    role_id: Optional[str] = None
+    role_id: Optional[Any] = None
 
 
 class FacebookUser(User):

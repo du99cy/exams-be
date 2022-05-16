@@ -59,6 +59,9 @@ async def get_user(email: str):
     #get user information
     user_data_dict = await user_collection.find_one({"email":email,"enabled":True})
     if user_data_dict:
+        #if exits id field
+        if user_data_dict.get("id") is not None:
+            del user_data_dict["id"]
         return UserInDB(**user_data_dict,id=str(user_data_dict["_id"]))
 
 
