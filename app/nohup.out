@@ -1,0 +1,24 @@
+INFO:     Will watch for changes in these directories: ['/home/ds2/du/exams-be/app']
+INFO:     Uvicorn running on http://0.0.0.0:9920 (Press CTRL+C to quit)
+INFO:     Started reloader process [2840682] using statreload
+INFO:     Started server process [2840685]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     42.115.195.145:62898 - "GET /docs HTTP/1.1" 200 OK
+INFO:     100.103.184.45:50402 - "OPTIONS /auth/token HTTP/1.1" 400 Bad Request
+INFO:     42.115.195.145:62898 - "GET /openapi.json HTTP/1.1" 200 OK
+INFO:     100.103.184.45:50403 - "OPTIONS /auth/token HTTP/1.1" 400 Bad Request
+INFO:     100.103.184.45:50405 - "OPTIONS /auth/token HTTP/1.1" 400 Bad Request
+INFO:     100.103.184.45:50416 - "OPTIONS /auth/token HTTP/1.1" 400 Bad Request
+INFO:     42.115.195.145:62904 - "POST /auth/token HTTP/1.1" 200 OK
+INFO:     42.115.195.145:62913 - "GET /auth/users/me/ HTTP/1.1" 200 OK
+INFO:     100.103.184.45:50468 - "OPTIONS /auth/token HTTP/1.1" 400 Bad Request
+INFO:     100.103.184.45:50469 - "OPTIONS /auth/token HTTP/1.1" 400 Bad Request
+WARNING:  StatReload detected file change in 'main.py'. Reloading...
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [2840685]
+INFO:     Started server process [2843940]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.

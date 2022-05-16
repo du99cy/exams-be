@@ -46,17 +46,24 @@ async def refresh_token(current_user: MailUser = Depends(get_current_active_user
 
 @api_router.get("/users/me/")
 async def read_users_me(current_user: MailUser = Depends(get_current_active_user)):
+    #get collections
+    user_collection = await get_collection_client(USER_COLLECTION)
+    user_dict = await user_collection.find_one({"_id":ObjectId(current_user.id)})
+    user_model = MailUser(**user_dict)
+    return responseModel(data=user_model.dict())
 
-    return responseModel(data=current_user.dict())
-
-@api_router.patch("/users/me")
+@api_router.patch("/users/me/")
 async def update_users_me(current_user=Depends(get_current_active_user),userUpdateBody:User = Body(...)):
     #get collections
     user_collection = await get_collection_client(USER_COLLECTION)
     
     body_update_user_dict = userUpdateBody.dict(exclude_unset=True)
     
-    await user_collection.update_one({"_id":ObjectId(current_user.id)},{"$set":body_update_user_dict},False)
+    if body_update_user_dict.get("id") is not None:
+        del body_update_user_dict["id"]
+    
+    
+    await user_collection.update_one({"_id":ObjectId(current_user.id),"enabled":True},{"$set":body_update_user_dict},False)
     
     return responseModel()
 
@@ -67,10 +74,10 @@ async def sign_up(user_data: UserSignUp = Body(...)) -> Any:
     # initialize user id
     user_id = 0
     # check email is exists
-    user_email_exists = await user_collection.find_one({"email": user_data.email})
+    user_email_exists = await user_collection.find_one({"email": user_data.email,"enabled":True})
     user_id = user_email_exists["_id"] if user_email_exists else user_id
     # save user data to user collection if not exists or user exists and not enabled(not activate)
-    if not user_email_exists or not user_email_exists['enabled']:
+    if not user_email_exists :
         hashed_password = get_password_hash(user_data.password)
         user_insert_data_db_model = UserInDB(
             **user_data.dict(), hashed_password=hashed_password)
@@ -81,7 +88,8 @@ async def sign_up(user_data: UserSignUp = Body(...)) -> Any:
     # if email exist and enabled or locked
     else:
         # if user_email_exists["enabled"]:
-        return responseModel(message="email is existed", status_code=400)
+        raise HTTPException(status_code=400,detail="email is existed")
+        
 
     # create a token
     token = ObjectId()

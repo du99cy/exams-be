@@ -56,7 +56,7 @@ async def update_testcase(current_user=Depends(get_current_active_user), testcas
     testcase_dict = testcase_body_update.dict(exclude_unset=True)
     del testcase_dict['id']
     
-    await testcase_collection.update_one({"_id":ObjectId(testcase_id),"instructor_id":current_user.id},{"$set":testcase_dict},False)
+    await testcase_collection.update_one({"_id":ObjectId(testcase_id),"instructor_id":current_user.id, "is_deleted":False},{"$set":testcase_dict},False)
     
     return responseModel()
 
@@ -68,4 +68,13 @@ async def delete_testcase(current_user=Depends(get_current_active_user),testcase
     #delete from database
     await testcase_collection.update_one({"_id":ObjectId(testcase_id),"instructor_id":current_user.id},{"$set":{"is_deleted":True}},False)
     
+    return responseModel()
+#delete all testcase of content
+@api_router.delete("/content/{content_id}/all")
+async def delete_all_testcae(content_id: str = Path(...),current_user=Depends(get_current_active_user)):
+    #get collections
+    testcase_collection = await get_collection_client(TESTCASE_COLLECTION_NAME)
+
+    await testcase_collection.update_many({"content_id": content_id, "instructor_id": current_user.id,"is_deleted":False},{"$set": {"is_deleted":True}})
+
     return responseModel()

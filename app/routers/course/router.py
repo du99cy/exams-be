@@ -68,10 +68,11 @@ async def get_all_content(current_user=Depends(get_current_active_user), course_
     # trace for order content list
 
     for content_id in order_contents:
-        content = await content_collection.find_one({"_id": ObjectId(content_id)})
+        content = await content_collection.find_one({"_id": ObjectId(content_id),"is_deleted":False})
         # parse to content model
-        content_model = Content(**content, id=content_id)
-        content_list.append(content_model.dict())
+        if content:
+            content_model = Content(**content, id=content_id)
+            content_list.append(content_model.dict())
 
     return responseModel(data=content_list)
 
