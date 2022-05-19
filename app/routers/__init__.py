@@ -11,7 +11,8 @@ from .recharge import RechargeRouter
 from .transaction import TransactionRouter
 
 from .course_category import course_category_router
-
+from .multi_choice_exam import multichoice_exam_router
+from .course_rating import CourseRatingRouter
 api_router_list = [
     {"name":TestRouter},
     {"name":course_router},
@@ -25,6 +26,8 @@ api_router_list = [
     {"name": RechargeRouter},
     {"name": TransactionRouter},
 
-    {"name":course_category_router}
+    {"name":course_category_router},
+    {"name":multichoice_exam_router},
+    {"name":CourseRatingRouter}
 
 ]

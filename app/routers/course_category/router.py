@@ -28,14 +28,14 @@ async def add_category(course_category_body:CourseCategoryPost = Body(...),curre
     return responseModel(data=str(result_insert.inserted_id))
 
 @course_category_router.get("")
-async def get_all_categories(current_user=Depends(get_current_active_user)):
+async def get_all_categories():
     #initialize
     cat_list = []
     #get collections
     course_category_collection = await get_collection_client(COURSE_CATEGORY_NAME)
     #just admin can do this work
-    if current_user.role_id != 1:
-        raise CREDENTIALS_EXCEPTION
+    # if current_user.role_id != 1:
+    #     raise CREDENTIALS_EXCEPTION
     
     course_category_cursor = course_category_collection.find({})
     async for cat in course_category_cursor:

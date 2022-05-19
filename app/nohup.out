@@ -22,3 +22,773 @@ INFO:     Finished server process [2840685]
 INFO:     Started server process [2843940]
 INFO:     Waiting for application startup.
 INFO:     Application startup complete.
+INFO:     Will watch for changes in these directories: ['/home/ds2/du/exams-be/app']
+INFO:uvicorn.error:Will watch for changes in these directories: ['/home/ds2/du/exams-be/app']
+INFO:     Uvicorn running on http://0.0.0.0:9920 (Press CTRL+C to quit)
+INFO:uvicorn.error:Uvicorn running on http://0.0.0.0:9920 (Press CTRL+C to quit)
+INFO:     Started reloader process [370236] using statreload
+INFO:uvicorn.error:Started reloader process [370236] using statreload
+INFO:     Started server process [370257]
+INFO:uvicorn.error:Started server process [370257]
+INFO:     Waiting for application startup.
+INFO:uvicorn.error:Waiting for application startup.
+INFO:fastapi_redis_cache.client: 05/17/2022 09:01:48 PM | CONNECT_BEGIN: Attempting to connect to Redis server...
+INFO:fastapi_redis_cache.client: 05/17/2022 09:01:48 PM | CONNECT_SUCCESS: Redis client is connected to server.
+INFO:     Application startup complete.
+INFO:uvicorn.error:Application startup complete.
+INFO:     123.16.221.198:63812 - "GET /docs HTTP/1.1" 200 OK
+INFO:     123.16.221.198:63812 - "GET /openapi.json HTTP/1.1" 200 OK
+INFO:     100.110.227.31:58046 - "GET /auth/refresh-token HTTP/1.1" 200 OK
+INFO:     100.110.227.31:58046 - "GET /auth/users/me/ HTTP/1.1" 200 OK
+INFO:     100.110.227.31:58048 - "GET /course/1652721296780/content/all HTTP/1.1" 200 OK
+INFO:     14.231.133.7:50609 - "OPTIONS /auth/refresh-token HTTP/1.1" 200 OK
+INFO:     14.231.133.7:50615 - "GET /auth/refresh-token HTTP/1.1" 401 Unauthorized
+INFO:     14.231.133.7:55090 - "GET /docs HTTP/1.1" 200 OK
+INFO:     14.231.133.7:62147 - "OPTIONS /transaction HTTP/1.1" 200 OK
+INFO:     14.231.133.7:62147 - "POST /transaction HTTP/1.1" 401 Unauthorized
+INFO:     14.231.133.7:62149 - "OPTIONS /course/1652721296780/published HTTP/1.1" 200 OK
+INFO:     14.231.133.7:62149 - "GET /course/1652721296780/published HTTP/1.1" 200 OK
+INFO:     14.231.133.7:62151 - "GET /63612_8797_4.jpg HTTP/1.1" 304 Not Modified
+INFO:     14.231.133.7:62149 - "POST /transaction HTTP/1.1" 401 Unauthorized
+INFO:     14.231.133.7:62167 - "OPTIONS /auth/token HTTP/1.1" 200 OK
+INFO:     14.231.133.7:62168 - "POST /auth/token HTTP/1.1" 200 OK
+INFO:     14.231.133.7:62167 - "OPTIONS /course/all/published HTTP/1.1" 200 OK
+INFO:     14.231.133.7:62168 - "GET /FB_IMG_1646231827757.jpg HTTP/1.1" 304 Not Modified
+INFO:     14.231.133.7:62167 - "GET /course/all/published HTTP/1.1" 200 OK
+INFO:     14.231.133.7:62168 - "GET /b677a0fe64cd71c833a58318358c32acc036e51fa58d394b51720c83aa20ce78.jpg HTTP/1.1" 304 Not Modified
+INFO:     14.231.133.7:62168 - "GET /190928_%EB%A9%94%EB%94%94%ED%9E%90_%ED%8C%AC%EC%82%AC%EC%9D%B8%ED%9A%8C_%EA%B9%80%EC%A7%80%EC%9B%90.jpg HTTP/1.1" 304 Not Modified
+INFO:     14.231.133.7:62176 - "GET /ufi2173.jpg HTTP/1.1" 304 Not Modified
+INFO:     14.231.133.7:62177 - "GET /301c20957a28b8862f6c1cce21de23c54f76a1a14dc4f84cc15cb0cbaf1c1d08.jpg HTTP/1.1" 304 Not Modified
+INFO:     14.231.133.7:62194 - "GET /course/1652721296780/published HTTP/1.1" 200 OK
+INFO:     14.231.133.7:62194 - "POST /transaction HTTP/1.1" 200 OK
+INFO:     100.110.227.31:58089 - "OPTIONS /auth/refresh-token HTTP/1.1" 200 OK
+INFO:     100.110.227.31:58090 - "GET /auth/refresh-token HTTP/1.1" 200 OK
+INFO:     100.110.227.31:58092 - "OPTIONS /auth/users/me/ HTTP/1.1" 200 OK
+INFO:     100.110.227.31:58090 - "GET /auth/users/me/ HTTP/1.1" 200 OK
+INFO:     100.110.227.31:58093 - "OPTIONS /course/1652721296780/content/all HTTP/1.1" 200 OK
+INFO:     100.110.227.31:58094 - "GET /course/1652721296780/content/all HTTP/1.1" 200 OK
+INFO:     14.231.133.7:62322 - "GET /auth/refresh-token HTTP/1.1" 200 OK
+INFO:     14.231.133.7:62323 - "OPTIONS /auth/users/me/ HTTP/1.1" 200 OK
+INFO:     14.231.133.7:62322 - "GET /auth/users/me/ HTTP/1.1" 200 OK
+INFO:     14.231.133.7:62323 - "GET /course/1652721296780/published HTTP/1.1" 200 OK
+INFO:     14.231.133.7:62328 - "POST /transaction HTTP/1.1" 200 OK
+INFO:     14.231.133.7:62347 - "GET /auth/refresh-token HTTP/1.1" 200 OK
+INFO:     14.231.133.7:62347 - "GET /auth/users/me/ HTTP/1.1" 200 OK
+INFO:     14.231.133.7:62350 - "GET /course/all/published HTTP/1.1" 200 OK
+INFO:     100.110.227.31:58146 - "GET /auth/refresh-token HTTP/1.1" 200 OK
+INFO:     100.110.227.31:58146 - "GET /auth/users/me/ HTTP/1.1" 200 OK
+INFO:     100.110.227.31:58147 - "GET /course/1652721296780/content/all HTTP/1.1" 200 OK
+INFO:     100.110.227.31:58156 - "GET /auth/refresh-token HTTP/1.1" 200 OK
+INFO:     100.110.227.31:58156 - "GET /auth/users/me/ HTTP/1.1" 200 OK
+INFO:     100.110.227.31:58158 - "GET /course/1652721296780/content/all HTTP/1.1" 200 OK
+INFO:     100.110.227.31:58170 - "GET /auth/refresh-token HTTP/1.1" 200 OK
+INFO:     100.110.227.31:58170 - "GET /auth/users/me/ HTTP/1.1" 200 OK
+INFO:     100.110.227.31:58172 - "GET /course/1652721296780/content/all HTTP/1.1" 200 OK
+INFO:     100.110.227.31:58172 - "OPTIONS /course/all/published HTTP/1.1" 200 OK
+INFO:     100.110.227.31:58177 - "GET /course/all/published HTTP/1.1" 200 OK
+INFO:     100.110.227.31:58177 - "GET /course/1652721296780/content/all HTTP/1.1" 200 OK
+INFO:     100.110.227.31:58231 - "GET /course/all/published HTTP/1.1" 200 OK
+INFO:     100.110.227.31:58238 - "GET /63612_8797_4.jpg HTTP/1.1" 304 Not Modified
+INFO:     100.110.227.31:58238 - "GET /docs HTTP/1.1" 200 OK
+INFO:     100.110.227.31:58238 - "GET /openapi.json HTTP/1.1" 200 OK
+INFO:     100.110.227.31:58252 - "GET /course/courses/me HTTP/1.1" 401 Unauthorized
+INFO:     100.110.227.31:51873 - "POST /auth/token HTTP/1.1" 400 Bad Request
+INFO:     100.110.227.31:51876 - "POST /auth/token HTTP/1.1" 200 OK
+INFO:     100.110.227.31:51876 - "GET /course/courses/me HTTP/1.1" 200 OK
+INFO:     100.110.227.31:51900 - "OPTIONS /course/all HTTP/1.1" 200 OK
+INFO:     100.110.227.31:51901 - "GET /course/all HTTP/1.1" 200 OK
+INFO:     100.110.227.31:51901 - "OPTIONS /course/1652721296780/infor?mode=goals HTTP/1.1" 200 OK
+INFO:     100.110.227.31:51903 - "GET /course/1652721296780/infor?mode=goals HTTP/1.1" 200 OK
+INFO:     100.110.227.31:51903 - "OPTIONS /course/1652721296780/content/all HTTP/1.1" 200 OK
+INFO:     100.110.227.31:51905 - "GET /course/1652721296780/content/all HTTP/1.1" 200 OK
+INFO:     100.110.227.31:51905 - "GET /course/1652721296780/content/all HTTP/1.1" 200 OK
+INFO:     100.110.227.31:65477 - "OPTIONS /auth/refresh-token HTTP/1.1" 200 OK
+INFO:     100.110.227.31:65478 - "GET /auth/refresh-token HTTP/1.1" 200 OK
+INFO:     100.110.227.31:65480 - "OPTIONS /auth/users/me/ HTTP/1.1" 200 OK
+INFO:     100.110.227.31:65478 - "GET /auth/users/me/ HTTP/1.1" 200 OK
+INFO:     100.110.227.31:65481 - "GET /course/1652721296780/content/all HTTP/1.1" 200 OK
+INFO:     100.110.227.31:65502 - "GET /auth/refresh-token HTTP/1.1" 200 OK
+INFO:     100.110.227.31:65502 - "GET /auth/users/me/ HTTP/1.1" 200 OK
+INFO:     100.110.227.31:65505 - "GET /course/1652721296780/content/all HTTP/1.1" 200 OK
+INFO:     100.110.227.31:49198 - "GET /auth/refresh-token HTTP/1.1" 200 OK
+INFO:     100.110.227.31:49198 - "GET /auth/users/me/ HTTP/1.1" 200 OK
+INFO:     100.110.227.31:49200 - "GET /course/1652721296780/content/all HTTP/1.1" 200 OK
+INFO:     100.110.227.31:49242 - "GET /auth/refresh-token HTTP/1.1" 200 OK
+INFO:     100.110.227.31:49242 - "GET /auth/users/me/ HTTP/1.1" 200 OK
+INFO:     100.110.227.31:49243 - "GET /course/1652721296780/content/all HTTP/1.1" 200 OK
+INFO:     100.110.227.31:49251 - "OPTIONS /multichoice-exam/62838c377d7643c318b3cf77 HTTP/1.1" 200 OK
+INFO:     100.110.227.31:49252 - "GET /multichoice-exam/62838c377d7643c318b3cf77 HTTP/1.1" 500 Internal Server Error
+ERROR:    Exception in ASGI application
+Traceback (most recent call last):
+  File "/home/ds2/du/exams-be/env/lib/python3.10/site-packages/uvicorn/protocols/http/h11_impl.py", line 366, in run_asgi
+    result = await app(self.scope, self.receive, self.send)
+  File "/home/ds2/du/exams-be/env/lib/python3.10/site-packages/uvicorn/middleware/proxy_headers.py", line 75, in __call__
+    return await self.app(scope, receive, send)
+  File "/home/ds2/du/exams-be/env/lib/python3.10/site-packages/fastapi/applications.py", line 212, in __call__
+    await super().__call__(scope, receive, send)
+  File "/home/ds2/du/exams-be/env/lib/python3.10/site-packages/starlette/applications.py", line 112, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "/home/ds2/du/exams-be/env/lib/python3.10/site-packages/starlette/middleware/errors.py", line 181, in __call__
+    raise exc
+  File "/home/ds2/du/exams-be/env/lib/python3.10/site-packages/starlette/middleware/errors.py", line 159, in __call__
+    await self.app(scope, receive, _send)
+  File "/home/ds2/du/exams-be/env/lib/python3.10/site-packages/starlette/middleware/gzip.py", line 23, in __call__
+    await responder(scope, receive, send)
+  File "/home/ds2/du/exams-be/env/lib/python3.10/site-packages/starlette/middleware/gzip.py", line 42, in __call__
+    await self.app(scope, receive, self.send_with_gzip)
+  File "/home/ds2/du/exams-be/env/lib/python3.10/site-packages/starlette/middleware/cors.py", line 92, in __call__
+    await self.simple_response(scope, receive, send, request_headers=headers)
+  File "/home/ds2/du/exams-be/env/lib/python3.10/site-packages/starlette/middleware/cors.py", line 147, in simple_response
+    await self.app(scope, receive, send)
+  File "/home/ds2/du/exams-be/env/lib/python3.10/site-packages/starlette/exceptions.py", line 82, in __call__
+    raise exc
+  File "/home/ds2/du/exams-be/env/lib/python3.10/site-packages/starlette/exceptions.py", line 71, in __call__
+    await self.app(scope, receive, sender)
+  File "/home/ds2/du/exams-be/env/lib/python3.10/site-packages/starlette/routing.py", line 656, in __call__
+    await route.handle(scope, receive, send)
+  File "/home/ds2/du/exams-be/env/lib/python3.10/site-packages/starlette/routing.py", line 259, in handle
+    await self.app(scope, receive, send)
+  File "/home/ds2/du/exams-be/env/lib/python3.10/site-packages/starlette/routing.py", line 61, in app
+    response = await func(request)
+  File "/home/ds2/du/exams-be/env/lib/python3.10/site-packages/fastapi/routing.py", line 226, in app
+    raw_response = await run_endpoint_function(
+  File "/home/ds2/du/exams-be/env/lib/python3.10/site-packages/fastapi/routing.py", line 159, in run_endpoint_function
+    return await dependant.call(**values)
+  File "/home/ds2/du/exams-be/app/routers/multi_choice_exam/router.py", line 33, in get_multichoice_exam_his_details
+    questions = multichoice_exam["questions"]
+TypeError: 'NoneType' object is not subscriptable
+ERROR:uvicorn.error:Exception in ASGI application
+Traceback (most recent call last):
+  File "/home/ds2/du/exams-be/env/lib/python3.10/site-packages/uvicorn/protocols/http/h11_impl.py", line 366, in run_asgi
+    result = await app(self.scope, self.receive, self.send)
+  File "/home/ds2/du/exams-be/env/lib/python3.10/site-packages/uvicorn/middleware/proxy_headers.py", line 75, in __call__
+    return await self.app(scope, receive, send)
+  File "/home/ds2/du/exams-be/env/lib/python3.10/site-packages/fastapi/applications.py", line 212, in __call__
+    await super().__call__(scope, receive, send)
+  File "/home/ds2/du/exams-be/env/lib/python3.10/site-packages/starlette/applications.py", line 112, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "/home/ds2/du/exams-be/env/lib/python3.10/site-packages/starlette/middleware/errors.py", line 181, in __call__
+    raise exc
+  File "/home/ds2/du/exams-be/env/lib/python3.10/site-packages/starlette/middleware/errors.py", line 159, in __call__
+    await self.app(scope, receive, _send)
+  File "/home/ds2/du/exams-be/env/lib/python3.10/site-packages/starlette/middleware/gzip.py", line 23, in __call__
+    await responder(scope, receive, send)
+  File "/home/ds2/du/exams-be/env/lib/python3.10/site-packages/starlette/middleware/gzip.py", line 42, in __call__
+    await self.app(scope, receive, self.send_with_gzip)
+  File "/home/ds2/du/exams-be/env/lib/python3.10/site-packages/starlette/middleware/cors.py", line 92, in __call__
+    await self.simple_response(scope, receive, send, request_headers=headers)
+  File "/home/ds2/du/exams-be/env/lib/python3.10/site-packages/starlette/middleware/cors.py", line 147, in simple_response
+    await self.app(scope, receive, send)
+  File "/home/ds2/du/exams-be/env/lib/python3.10/site-packages/starlette/exceptions.py", line 82, in __call__
+    raise exc
+  File "/home/ds2/du/exams-be/env/lib/python3.10/site-packages/starlette/exceptions.py", line 71, in __call__
+    await self.app(scope, receive, sender)
+  File "/home/ds2/du/exams-be/env/lib/python3.10/site-packages/starlette/routing.py", line 656, in __call__
+    await route.handle(scope, receive, send)
+  File "/home/ds2/du/exams-be/env/lib/python3.10/site-packages/starlette/routing.py", line 259, in handle
+    await self.app(scope, receive, send)
+  File "/home/ds2/du/exams-be/env/lib/python3.10/site-packages/starlette/routing.py", line 61, in app
+    response = await func(request)
+  File "/home/ds2/du/exams-be/env/lib/python3.10/site-packages/fastapi/routing.py", line 226, in app
+    raw_response = await run_endpoint_function(
+  File "/home/ds2/du/exams-be/env/lib/python3.10/site-packages/fastapi/routing.py", line 159, in run_endpoint_function
+    return await dependant.call(**values)
+  File "/home/ds2/du/exams-be/app/routers/multi_choice_exam/router.py", line 33, in get_multichoice_exam_his_details
+    questions = multichoice_exam["questions"]
+TypeError: 'NoneType' object is not subscriptable
+INFO:     100.110.227.31:49322 - "OPTIONS /course/all/published HTTP/1.1" 200 OK
+INFO:     100.110.227.31:49329 - "GET /course/all/published HTTP/1.1" 200 OK
+INFO:     100.110.227.31:49367 - "GET /course/all/published HTTP/1.1" 200 OK
+INFO:     100.110.227.31:49404 - "GET / HTTP/1.1" 404 Not Found
+INFO:     100.110.227.31:49405 - "GET /course/1652726922935/data-stream HTTP/1.1" 200 OK
+INFO:     100.110.227.31:49410 - "GET /course/all/published HTTP/1.1" 200 OK
+INFO:     100.110.227.31:49462 - "GET /course/all HTTP/1.1" 200 OK
+INFO:     100.110.227.31:49495 - "GET /course/all/published HTTP/1.1" 200 OK
+INFO:     100.110.227.31:49543 - "GET /docs HTTP/1.1" 200 OK
+INFO:     100.110.227.31:49551 - "GET /docs HTTP/1.1" 200 OK
+INFO:     100.110.227.31:49551 - "GET /openapi.json HTTP/1.1" 200 OK
+INFO:     100.110.227.31:49564 - "GET /course/courses/me HTTP/1.1" 401 Unauthorized
+INFO:     100.110.227.31:49570 - "POST /auth/token HTTP/1.1" 200 OK
+INFO:     100.110.227.31:49570 - "GET /course/courses/me HTTP/1.1" 200 OK
+INFO:     14.231.133.7:60274 - "GET /course/all/published HTTP/1.1" 200 OK
+INFO:     100.110.227.31:49945 - "OPTIONS /auth/refresh-token HTTP/1.1" 200 OK
+INFO:     100.110.227.31:49946 - "GET /auth/refresh-token HTTP/1.1" 200 OK
+INFO:     100.110.227.31:49947 - "OPTIONS /auth/users/me/ HTTP/1.1" 200 OK
+INFO:     100.110.227.31:49946 - "GET /auth/users/me/ HTTP/1.1" 200 OK
+INFO:     100.110.227.31:49953 - "OPTIONS /course/all/published HTTP/1.1" 200 OK
+INFO:     100.110.227.31:49954 - "GET /course/all/published HTTP/1.1" 200 OK
+INFO:     14.231.133.7:64508 - "OPTIONS /auth/token HTTP/1.1" 200 OK
+INFO:     14.231.133.7:64509 - "POST /auth/token HTTP/1.1" 200 OK
+INFO:     14.231.133.7:64508 - "OPTIONS /course/all/published HTTP/1.1" 200 OK
+INFO:     14.231.133.7:64508 - "GET /course/all/published HTTP/1.1" 200 OK
+INFO:     100.110.227.31:64886 - "GET /auth/refresh-token HTTP/1.1" 200 OK
+INFO:     100.110.227.31:64886 - "GET /auth/users/me/ HTTP/1.1" 200 OK
+INFO:     100.110.227.31:64889 - "OPTIONS /course/courses/me HTTP/1.1" 200 OK
+INFO:     100.110.227.31:64890 - "GET /course/all/published HTTP/1.1" 200 OK
+INFO:     100.110.227.31:64891 - "GET /course/courses/me HTTP/1.1" 200 OK
+INFO:     100.110.227.31:64963 - "GET /auth/refresh-token HTTP/1.1" 200 OK
+INFO:     100.110.227.31:64963 - "GET /auth/users/me/ HTTP/1.1" 200 OK
+INFO:     100.110.227.31:64964 - "GET /course/courses/me HTTP/1.1" 200 OK
+INFO:     100.110.227.31:64965 - "GET /course/all/published HTTP/1.1" 200 OK
+INFO:     100.110.227.31:65030 - "GET /auth/refresh-token HTTP/1.1" 200 OK
+INFO:     100.110.227.31:65030 - "GET /auth/users/me/ HTTP/1.1" 200 OK
+INFO:     100.110.227.31:65032 - "GET /course/courses/me HTTP/1.1" 200 OK
+INFO:     100.110.227.31:65033 - "GET /course/all/published HTTP/1.1" 200 OK
+INFO:     100.110.227.31:65076 - "GET /auth/refresh-token HTTP/1.1" 200 OK
+INFO:     100.110.227.31:65076 - "GET /auth/users/me/ HTTP/1.1" 200 OK
+INFO:     100.110.227.31:65079 - "GET /course/all/published HTTP/1.1" 200 OK
+INFO:     100.110.227.31:65089 - "GET /auth/refresh-token HTTP/1.1" 200 OK
+INFO:     100.110.227.31:65089 - "GET /auth/users/me/ HTTP/1.1" 200 OK
+INFO:     100.110.227.31:65096 - "GET /course/all/published HTTP/1.1" 200 OK
+INFO:     100.110.227.31:65110 - "GET /auth/refresh-token HTTP/1.1" 200 OK
+INFO:     100.110.227.31:65110 - "GET /auth/users/me/ HTTP/1.1" 200 OK
+INFO:     100.110.227.31:65113 - "GET /course/courses/me HTTP/1.1" 200 OK
+INFO:     100.110.227.31:65112 - "GET /course/all/published HTTP/1.1" 200 OK
+INFO:     100.110.227.31:65145 - "GET /auth/refresh-token HTTP/1.1" 200 OK
+INFO:     100.110.227.31:65145 - "GET /auth/users/me/ HTTP/1.1" 200 OK
+INFO:     100.110.227.31:65148 - "GET /course/courses/me HTTP/1.1" 200 OK
+INFO:     100.110.227.31:65149 - "GET /course/all/published HTTP/1.1" 200 OK
+INFO:     100.110.227.31:65168 - "OPTIONS /auth/refresh-token HTTP/1.1" 200 OK
+INFO:     100.110.227.31:65170 - "GET /auth/refresh-token HTTP/1.1" 200 OK
+INFO:     100.110.227.31:65171 - "OPTIONS /auth/users/me/ HTTP/1.1" 200 OK
+INFO:     100.110.227.31:65170 - "GET /auth/users/me/ HTTP/1.1" 200 OK
+INFO:     100.110.227.31:65173 - "OPTIONS /course/all/published HTTP/1.1" 200 OK
+INFO:     100.110.227.31:65172 - "GET /course/courses/me HTTP/1.1" 200 OK
+INFO:     100.110.227.31:65174 - "GET /course/all/published HTTP/1.1" 200 OK
+INFO:     100.110.227.31:65217 - "GET /auth/refresh-token HTTP/1.1" 200 OK
+INFO:     100.110.227.31:65217 - "GET /auth/users/me/ HTTP/1.1" 200 OK
+INFO:     100.110.227.31:65218 - "GET /course/courses/me HTTP/1.1" 200 OK
+INFO:     100.110.227.31:65219 - "GET /course/all/published HTTP/1.1" 200 OK
+INFO:     100.110.227.31:65233 - "GET /auth/refresh-token HTTP/1.1" 200 OK
+INFO:     100.110.227.31:65233 - "GET /auth/users/me/ HTTP/1.1" 200 OK
+INFO:     100.110.227.31:65237 - "GET /course/courses/me HTTP/1.1" 200 OK
+INFO:     100.110.227.31:65238 - "GET /course/all/published HTTP/1.1" 200 OK
+INFO:     100.110.227.31:65255 - "GET /auth/refresh-token HTTP/1.1" 200 OK
+INFO:     100.110.227.31:65255 - "GET /auth/users/me/ HTTP/1.1" 200 OK
+INFO:     100.110.227.31:65294 - "GET /auth/refresh-token HTTP/1.1" 200 OK
+INFO:     100.110.227.31:65294 - "GET /auth/users/me/ HTTP/1.1" 200 OK
+INFO:     100.110.227.31:65298 - "GET /course/courses/me HTTP/1.1" 200 OK
+INFO:     100.110.227.31:65299 - "GET /course/all/published HTTP/1.1" 200 OK
+INFO:     100.110.227.31:65353 - "GET /auth/refresh-token HTTP/1.1" 200 OK
+INFO:     100.110.227.31:65353 - "GET /auth/users/me/ HTTP/1.1" 200 OK
+INFO:     100.110.227.31:65355 - "GET /course/courses/me HTTP/1.1" 200 OK
+INFO:     100.110.227.31:65356 - "GET /course/all/published HTTP/1.1" 200 OK
+INFO:     100.110.227.31:65353 - "GET /auth/refresh-token HTTP/1.1" 200 OK
+INFO:     100.110.227.31:65353 - "GET /auth/users/me/ HTTP/1.1" 200 OK
+INFO:     100.110.227.31:65356 - "GET /course/courses/me HTTP/1.1" 200 OK
+INFO:     100.110.227.31:65355 - "GET /course/all/published HTTP/1.1" 200 OK
+INFO:     100.110.227.31:65436 - "GET /auth/refresh-token HTTP/1.1" 200 OK
+INFO:     100.110.227.31:65436 - "GET /auth/users/me/ HTTP/1.1" 200 OK
+INFO:     100.110.227.31:65438 - "GET /course/courses/me HTTP/1.1" 200 OK
+INFO:     100.110.227.31:65471 - "GET /auth/refresh-token HTTP/1.1" 200 OK
+INFO:     100.110.227.31:65471 - "GET /auth/users/me/ HTTP/1.1" 200 OK
+INFO:     100.110.227.31:65473 - "GET /course/courses/me HTTP/1.1" 200 OK
+INFO:     100.110.227.31:65494 - "GET /auth/refresh-token HTTP/1.1" 200 OK
+INFO:     100.110.227.31:65494 - "GET /auth/users/me/ HTTP/1.1" 200 OK
+INFO:     100.110.227.31:65497 - "GET /course/courses/me HTTP/1.1" 200 OK
+INFO:     100.110.227.31:65512 - "GET /auth/refresh-token HTTP/1.1" 200 OK
+INFO:     100.110.227.31:65512 - "GET /auth/users/me/ HTTP/1.1" 200 OK
+INFO:     100.110.227.31:65514 - "GET /course/courses/me HTTP/1.1" 200 OK
+INFO:     100.110.227.31:49159 - "GET /course/courses/me HTTP/1.1" 200 OK
+INFO:     100.110.227.31:49166 - "GET /course/all/published HTTP/1.1" 200 OK
+INFO:     100.110.227.31:49202 - "OPTIONS /auth/token HTTP/1.1" 200 OK
+INFO:     100.110.227.31:49203 - "POST /auth/token HTTP/1.1" 200 OK
+INFO:     100.110.227.31:49205 - "OPTIONS /course/courses/me HTTP/1.1" 200 OK
+INFO:     100.110.227.31:49203 - "GET /FB_IMG_1646231827757.jpg HTTP/1.1" 200 OK
+INFO:     100.110.227.31:49206 - "GET /course/all/published HTTP/1.1" 200 OK
+INFO:     100.110.227.31:49213 - "GET /course/courses/me HTTP/1.1" 200 OK
+INFO:     100.110.227.31:49226 - "GET /auth/refresh-token HTTP/1.1" 200 OK
+INFO:     100.110.227.31:49226 - "GET /auth/users/me/ HTTP/1.1" 200 OK
+INFO:     100.110.227.31:49228 - "GET /course/courses/me HTTP/1.1" 200 OK
+INFO:     100.110.227.31:49229 - "GET /course/all/published HTTP/1.1" 200 OK
+INFO:     100.110.227.31:49273 - "GET /auth/refresh-token HTTP/1.1" 200 OK
+INFO:     100.110.227.31:49273 - "GET /auth/users/me/ HTTP/1.1" 200 OK
+INFO:     100.110.227.31:49276 - "GET /course/courses/me HTTP/1.1" 200 OK
+INFO:     100.110.227.31:49277 - "GET /course/all/published HTTP/1.1" 200 OK
+INFO:     100.110.227.31:49301 - "GET /auth/refresh-token HTTP/1.1" 200 OK
+INFO:     100.110.227.31:49301 - "GET /auth/users/me/ HTTP/1.1" 200 OK
+INFO:     100.110.227.31:49304 - "GET /course/courses/me HTTP/1.1" 200 OK
+INFO:     100.110.227.31:49305 - "GET /course/all/published HTTP/1.1" 200 OK
+INFO:     100.110.227.31:49301 - "GET /auth/refresh-token HTTP/1.1" 200 OK
+INFO:     100.110.227.31:49301 - "GET /auth/users/me/ HTTP/1.1" 200 OK
+INFO:     100.110.227.31:49305 - "GET /course/courses/me HTTP/1.1" 200 OK
+INFO:     100.110.227.31:49304 - "GET /course/all/published HTTP/1.1" 200 OK
+INFO:     100.110.227.31:49335 - "GET /auth/refresh-token HTTP/1.1" 200 OK
+INFO:     100.110.227.31:49335 - "GET /auth/users/me/ HTTP/1.1" 200 OK
+INFO:     100.110.227.31:49337 - "GET /course/courses/me HTTP/1.1" 200 OK
+INFO:     100.110.227.31:49338 - "GET /course/all/published HTTP/1.1" 200 OK
+INFO:     100.110.227.31:49353 - "GET /auth/refresh-token HTTP/1.1" 200 OK
+INFO:     100.110.227.31:49353 - "GET /auth/users/me/ HTTP/1.1" 200 OK
+INFO:     100.110.227.31:49356 - "GET /course/courses/me HTTP/1.1" 200 OK
+INFO:     100.110.227.31:49357 - "GET /course/all/published HTTP/1.1" 200 OK
+INFO:     100.110.227.31:49374 - "GET /auth/refresh-token HTTP/1.1" 200 OK
+INFO:     100.110.227.31:49374 - "GET /auth/users/me/ HTTP/1.1" 200 OK
+INFO:     100.110.227.31:49377 - "GET /course/courses/me HTTP/1.1" 200 OK
+INFO:     100.110.227.31:49378 - "GET /course/all/published HTTP/1.1" 200 OK
+INFO:     100.110.227.31:49417 - "GET /auth/refresh-token HTTP/1.1" 200 OK
+INFO:     100.110.227.31:49417 - "GET /auth/users/me/ HTTP/1.1" 200 OK
+INFO:     100.110.227.31:49420 - "GET /course/courses/me HTTP/1.1" 200 OK
+INFO:     100.110.227.31:49421 - "GET /course/all/published HTTP/1.1" 200 OK
+INFO:     100.110.227.31:49468 - "GET /auth/refresh-token HTTP/1.1" 200 OK
+INFO:     100.110.227.31:49468 - "GET /auth/users/me/ HTTP/1.1" 200 OK
+INFO:     100.110.227.31:49470 - "GET /course/courses/me HTTP/1.1" 200 OK
+INFO:     100.110.227.31:49471 - "GET /course/all/published HTTP/1.1" 200 OK
+INFO:     100.110.227.31:49471 - "GET /course/courses/me HTTP/1.1" 200 OK
+INFO:     100.110.227.31:49520 - "OPTIONS /auth/refresh-token HTTP/1.1" 200 OK
+INFO:     100.110.227.31:49522 - "GET /auth/refresh-token HTTP/1.1" 200 OK
+INFO:     100.110.227.31:49523 - "OPTIONS /auth/users/me/ HTTP/1.1" 200 OK
+INFO:     100.110.227.31:49522 - "GET /auth/users/me/ HTTP/1.1" 200 OK
+INFO:     100.110.227.31:49524 - "GET /course/courses/me HTTP/1.1" 200 OK
+INFO:     100.110.227.31:49561 - "GET /auth/refresh-token HTTP/1.1" 200 OK
+INFO:     100.110.227.31:49561 - "GET /auth/users/me/ HTTP/1.1" 200 OK
+INFO:     100.110.227.31:49565 - "GET /course/courses/me HTTP/1.1" 200 OK
+INFO:     14.231.133.7:64421 - "OPTIONS /auth/refresh-token HTTP/1.1" 200 OK
+INFO:     14.231.133.7:64422 - "GET /auth/refresh-token HTTP/1.1" 200 OK
+INFO:     14.231.133.7:64421 - "OPTIONS /auth/users/me/ HTTP/1.1" 200 OK
+INFO:     14.231.133.7:64422 - "GET /auth/users/me/ HTTP/1.1" 200 OK
+INFO:     14.231.133.7:64421 - "OPTIONS /course/all/published HTTP/1.1" 200 OK
+INFO:     14.231.133.7:64421 - "GET /course/all/published HTTP/1.1" 200 OK
+INFO:     14.231.133.7:64422 - "GET /63612_8797_4.jpg HTTP/1.1" 304 Not Modified
+INFO:     100.110.227.31:49645 - "GET /auth/refresh-token HTTP/1.1" 200 OK
+INFO:     100.110.227.31:49645 - "GET /auth/users/me/ HTTP/1.1" 200 OK
+INFO:     100.110.227.31:49648 - "GET /course/courses/me HTTP/1.1" 200 OK
+INFO:     14.231.133.7:64469 - "GET /auth/refresh-token HTTP/1.1" 200 OK
+INFO:     14.231.133.7:64469 - "GET /auth/users/me/ HTTP/1.1" 200 OK
+INFO:     14.231.133.7:64472 - "GET /course/all/published HTTP/1.1" 200 OK
+INFO:     100.110.227.31:49683 - "GET /auth/refresh-token HTTP/1.1" 200 OK
+INFO:     100.110.227.31:49683 - "GET /auth/users/me/ HTTP/1.1" 200 OK
+INFO:     100.110.227.31:49686 - "GET /course/courses/me HTTP/1.1" 200 OK
+INFO:     14.231.133.7:64525 - "GET /auth/refresh-token HTTP/1.1" 200 OK
+INFO:     14.231.133.7:64525 - "GET /auth/users/me/ HTTP/1.1" 200 OK
+INFO:     14.231.133.7:61528 - "GET /auth/refresh-token HTTP/1.1" 200 OK
+INFO:     14.231.133.7:61528 - "GET /auth/users/me/ HTTP/1.1" 200 OK
+INFO:     14.231.133.7:61565 - "GET /auth/refresh-token HTTP/1.1" 200 OK
+INFO:     14.231.133.7:61565 - "GET /auth/users/me/ HTTP/1.1" 200 OK
+INFO:     14.231.133.7:65004 - "GET /auth/refresh-token HTTP/1.1" 200 OK
+INFO:     14.231.133.7:65004 - "GET /auth/users/me/ HTTP/1.1" 200 OK
+INFO:     14.231.133.7:65006 - "GET /course/all/published HTTP/1.1" 200 OK
+INFO:     14.231.133.7:65004 - "GET / HTTP/1.1" 404 Not Found
+INFO:     14.231.133.7:55603 - "GET /auth/refresh-token HTTP/1.1" 200 OK
+INFO:     14.231.133.7:55603 - "GET /auth/users/me/ HTTP/1.1" 200 OK
+INFO:     14.231.133.7:55656 - "GET /auth/refresh-token HTTP/1.1" 200 OK
+INFO:     14.231.133.7:55656 - "GET /auth/users/me/ HTTP/1.1" 200 OK
+INFO:     100.110.227.31:49930 - "GET /auth/refresh-token HTTP/1.1" 200 OK
+INFO:     100.110.227.31:49930 - "GET /auth/users/me/ HTTP/1.1" 200 OK
+INFO:     100.110.227.31:49931 - "OPTIONS /course/courses/me HTTP/1.1" 200 OK
+INFO:     100.110.227.31:49932 - "GET /course/courses/me HTTP/1.1" 200 OK
+INFO:     14.231.133.7:55693 - "GET /auth/refresh-token HTTP/1.1" 200 OK
+INFO:     14.231.133.7:55693 - "GET /auth/users/me/ HTTP/1.1" 200 OK
+INFO:     14.231.133.7:55696 - "GET /course/all/published HTTP/1.1" 200 OK
+INFO:     14.231.133.7:55693 - "GET /auth/refresh-token HTTP/1.1" 200 OK
+INFO:     14.231.133.7:55693 - "GET /auth/users/me/ HTTP/1.1" 200 OK
+INFO:     14.231.133.7:55696 - "GET /course/all/published HTTP/1.1" 200 OK
+INFO:     14.231.133.7:55693 - "GET / HTTP/1.1" 404 Not Found
+INFO:     14.231.133.7:60941 - "GET /auth/refresh-token HTTP/1.1" 200 OK
+INFO:     14.231.133.7:60941 - "GET /auth/users/me/ HTTP/1.1" 200 OK
+INFO:     14.231.133.7:60957 - "GET /auth/refresh-token HTTP/1.1" 200 OK
+INFO:     14.231.133.7:60957 - "GET /auth/users/me/ HTTP/1.1" 200 OK
+INFO:     14.231.133.7:60957 - "GET /auth/refresh-token HTTP/1.1" 200 OK
+INFO:     14.231.133.7:60957 - "GET /auth/users/me/ HTTP/1.1" 200 OK
+INFO:     14.231.133.7:60970 - "GET /course/all/published HTTP/1.1" 200 OK
+INFO:     14.231.133.7:64496 - "GET /auth/refresh-token HTTP/1.1" 200 OK
+INFO:     14.231.133.7:64496 - "GET /auth/users/me/ HTTP/1.1" 200 OK
+INFO:     14.231.133.7:64499 - "GET /course/all/published HTTP/1.1" 200 OK
+INFO:     14.231.133.7:64521 - "GET /course/all/published HTTP/1.1" 200 OK
+INFO:     14.231.133.7:64522 - "GET / HTTP/1.1" 404 Not Found
+INFO:     14.231.133.7:64521 - "GET /course/all/published HTTP/1.1" 200 OK
+INFO:     14.231.133.7:56848 - "OPTIONS /auth/refresh-token HTTP/1.1" 200 OK
+INFO:     14.231.133.7:56850 - "GET /auth/refresh-token HTTP/1.1" 200 OK
+INFO:     14.231.133.7:56848 - "OPTIONS /auth/users/me/ HTTP/1.1" 200 OK
+INFO:     14.231.133.7:56850 - "GET /auth/users/me/ HTTP/1.1" 200 OK
+INFO:     14.231.133.7:56848 - "OPTIONS /course/all/published HTTP/1.1" 200 OK
+INFO:     14.231.133.7:56848 - "GET /course/all/published HTTP/1.1" 200 OK
+INFO:     14.231.133.7:56882 - "GET /auth/refresh-token HTTP/1.1" 200 OK
+INFO:     14.231.133.7:56882 - "GET /auth/users/me/ HTTP/1.1" 200 OK
+INFO:     14.231.133.7:56884 - "GET /course/all/published HTTP/1.1" 200 OK
+INFO:     14.231.133.7:56928 - "GET /auth/refresh-token HTTP/1.1" 200 OK
+INFO:     14.231.133.7:56928 - "GET /auth/users/me/ HTTP/1.1" 200 OK
+INFO:     14.231.133.7:56930 - "GET /course/all/published HTTP/1.1" 200 OK
+INFO:     14.231.133.7:56948 - "GET /course/all/published HTTP/1.1" 200 OK
+INFO:     14.231.133.7:56949 - "GET / HTTP/1.1" 404 Not Found
+INFO:     14.231.133.7:57004 - "GET /auth/refresh-token HTTP/1.1" 200 OK
+INFO:     14.231.133.7:57004 - "GET /auth/users/me/ HTTP/1.1" 200 OK
+INFO:     14.231.133.7:57006 - "GET /course/all/published HTTP/1.1" 200 OK
+INFO:     14.231.133.7:57004 - "GET / HTTP/1.1" 404 Not Found
+INFO:     14.231.133.7:57856 - "GET /auth/refresh-token HTTP/1.1" 200 OK
+INFO:     14.231.133.7:57856 - "GET /auth/users/me/ HTTP/1.1" 200 OK
+INFO:     14.231.133.7:57858 - "GET /course/all/published HTTP/1.1" 200 OK
+INFO:     14.231.133.7:57856 - "GET / HTTP/1.1" 404 Not Found
+INFO:     14.231.133.7:57877 - "GET /auth/refresh-token HTTP/1.1" 200 OK
+INFO:     14.231.133.7:57877 - "GET /auth/users/me/ HTTP/1.1" 200 OK
+INFO:     14.231.133.7:57880 - "GET /course/all/published HTTP/1.1" 200 OK
+INFO:     14.231.133.7:57877 - "GET / HTTP/1.1" 404 Not Found
+INFO:     14.231.133.7:57905 - "GET /auth/refresh-token HTTP/1.1" 200 OK
+INFO:     14.231.133.7:57905 - "GET /auth/users/me/ HTTP/1.1" 200 OK
+INFO:     14.231.133.7:57908 - "GET /course/all/published HTTP/1.1" 200 OK
+INFO:     14.231.133.7:57905 - "GET / HTTP/1.1" 404 Not Found
+INFO:     14.231.133.7:57922 - "GET /auth/refresh-token HTTP/1.1" 200 OK
+INFO:     14.231.133.7:57922 - "GET /auth/users/me/ HTTP/1.1" 200 OK
+INFO:     14.231.133.7:57924 - "GET /course/all/published HTTP/1.1" 200 OK
+INFO:     14.231.133.7:57937 - "GET /course/all/published HTTP/1.1" 200 OK
+INFO:     14.231.133.7:57988 - "GET /auth/refresh-token HTTP/1.1" 200 OK
+INFO:     14.231.133.7:57988 - "GET /auth/users/me/ HTTP/1.1" 200 OK
+INFO:     14.231.133.7:57991 - "GET /course/all/published HTTP/1.1" 200 OK
+INFO:     14.231.133.7:58005 - "GET /course/all/published HTTP/1.1" 200 OK
+INFO:     14.231.133.7:58028 - "GET /auth/refresh-token HTTP/1.1" 200 OK
+INFO:     14.231.133.7:58028 - "GET /auth/users/me/ HTTP/1.1" 200 OK
+INFO:     14.231.133.7:58030 - "GET /course/all/published HTTP/1.1" 200 OK
+INFO:     14.231.133.7:58034 - "GET /course/all/published HTTP/1.1" 200 OK
+INFO:     14.231.133.7:58034 - "GET /course/all/published HTTP/1.1" 200 OK
+INFO:     14.231.133.7:58059 - "GET /auth/refresh-token HTTP/1.1" 200 OK
+INFO:     14.231.133.7:58059 - "GET /auth/users/me/ HTTP/1.1" 200 OK
+INFO:     14.231.133.7:58061 - "GET /course/all/published HTTP/1.1" 200 OK
+INFO:     14.231.133.7:58080 - "GET /auth/refresh-token HTTP/1.1" 200 OK
+INFO:     14.231.133.7:58080 - "GET /auth/users/me/ HTTP/1.1" 200 OK
+INFO:     14.231.133.7:58082 - "GET /course/all/published HTTP/1.1" 200 OK
+INFO:     14.231.133.7:58111 - "GET /auth/refresh-token HTTP/1.1" 200 OK
+INFO:     14.231.133.7:58111 - "GET /auth/users/me/ HTTP/1.1" 200 OK
+INFO:     14.231.133.7:58113 - "GET /course/all/published HTTP/1.1" 200 OK
+INFO:     49.213.78.31:58779 - "GET /docs HTTP/1.1" 200 OK
+INFO:     14.226.20.195:63888 - "GET /docs HTTP/1.1" 200 OK
+INFO:     Will watch for changes in these directories: ['/home/ds2/du/exams-be/app']
+INFO:uvicorn.error:Will watch for changes in these directories: ['/home/ds2/du/exams-be/app']
+INFO:     Uvicorn running on http://0.0.0.0:9920 (Press CTRL+C to quit)
+INFO:uvicorn.error:Uvicorn running on http://0.0.0.0:9920 (Press CTRL+C to quit)
+INFO:     Started reloader process [1486075] using statreload
+INFO:uvicorn.error:Started reloader process [1486075] using statreload
+INFO:     Started server process [1486093]
+INFO:uvicorn.error:Started server process [1486093]
+INFO:     Waiting for application startup.
+INFO:uvicorn.error:Waiting for application startup.
+INFO:fastapi_redis_cache.client: 05/18/2022 10:19:43 AM | CONNECT_BEGIN: Attempting to connect to Redis server...
+INFO:fastapi_redis_cache.client: 05/18/2022 10:19:43 AM | CONNECT_SUCCESS: Redis client is connected to server.
+INFO:     Application startup complete.
+INFO:uvicorn.error:Application startup complete.
+INFO:     113.185.55.100:59752 - "POST /auth/token HTTP/1.1" 200 OK
+INFO:     113.185.55.100:31591 - "OPTIONS /course/all/published HTTP/1.1" 200 OK
+INFO:     113.185.55.100:20231 - "GET /course/all/published HTTP/1.1" 200 OK
+INFO:     113.185.55.100:59752 - "GET /836376_8b97_4.jpg HTTP/1.1" 304 Not Modified
+INFO:     113.185.55.100:45774 - "POST /auth/token HTTP/1.1" 400 Bad Request
+INFO:     113.185.55.100:48552 - "POST /auth/token HTTP/1.1" 200 OK
+INFO:     113.185.55.100:60574 - "GET /course/all/published HTTP/1.1" 200 OK
+INFO:     113.185.55.100:60574 - "OPTIONS /course/courses/me HTTP/1.1" 200 OK
+INFO:     113.185.55.100:60775 - "GET /course/courses/me HTTP/1.1" 200 OK
+INFO:     113.185.55.100:60775 - "GET /course/all/published HTTP/1.1" 200 OK
+INFO:     113.185.55.100:60775 - "OPTIONS /course-rating/course/1652840598529/rating-all HTTP/1.1" 200 OK
+INFO:     113.185.55.100:16334 - "GET / HTTP/1.1" 404 Not Found
+INFO:     113.185.55.100:6596 - "GET /course/1652840598529/data-stream HTTP/1.1" 200 OK
+INFO:     113.185.55.100:28692 - "GET /course-rating/course/1652840598529/rating-all HTTP/1.1" 200 OK
+INFO:     113.185.55.100:6596 - "OPTIONS /course/1652840598529/content/all HTTP/1.1" 200 OK
+INFO:     113.185.55.100:28692 - "GET /course/1652840598529/content/all HTTP/1.1" 200 OK
+INFO:     113.185.55.100:28692 - "OPTIONS /resourse/62845c181401b8cfe72a8797/video HTTP/1.1" 200 OK
+INFO:     113.185.55.100:51542 - "OPTIONS /resourse/62845c181401b8cfe72a8797/all?mode=preview&resourse_type=file HTTP/1.1" 200 OK
+INFO:     113.185.55.100:22639 - "GET /resourse/62845c181401b8cfe72a8797/video HTTP/1.1" 500 Internal Server Error
+ERROR:    Exception in ASGI application
+Traceback (most recent call last):
+  File "/home/ds2/du/exams-be/env/lib/python3.10/site-packages/starlette/responses.py", line 299, in __call__
+    stat_result = await anyio.to_thread.run_sync(os.stat, self.path)
+  File "/home/ds2/du/exams-be/env/lib/python3.10/site-packages/anyio/to_thread.py", line 31, in run_sync
+    return await get_asynclib().run_sync_in_worker_thread(
+  File "/home/ds2/du/exams-be/env/lib/python3.10/site-packages/anyio/_backends/_asyncio.py", line 937, in run_sync_in_worker_thread
+    return await future
+  File "/home/ds2/du/exams-be/env/lib/python3.10/site-packages/anyio/_backends/_asyncio.py", line 867, in run
+    result = context.run(func, *args)
+FileNotFoundError: [Errno 2] No such file or directory: ''
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/ds2/du/exams-be/env/lib/python3.10/site-packages/uvicorn/protocols/http/h11_impl.py", line 366, in run_asgi
+    result = await app(self.scope, self.receive, self.send)
+  File "/home/ds2/du/exams-be/env/lib/python3.10/site-packages/uvicorn/middleware/proxy_headers.py", line 75, in __call__
+    return await self.app(scope, receive, send)
+  File "/home/ds2/du/exams-be/env/lib/python3.10/site-packages/fastapi/applications.py", line 212, in __call__
+    await super().__call__(scope, receive, send)
+  File "/home/ds2/du/exams-be/env/lib/python3.10/site-packages/starlette/applications.py", line 112, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "/home/ds2/du/exams-be/env/lib/python3.10/site-packages/starlette/middleware/errors.py", line 181, in __call__
+    raise exc
+  File "/home/ds2/du/exams-be/env/lib/python3.10/site-packages/starlette/middleware/errors.py", line 159, in __call__
+    await self.app(scope, receive, _send)
+  File "/home/ds2/du/exams-be/env/lib/python3.10/site-packages/starlette/middleware/gzip.py", line 23, in __call__
+    await responder(scope, receive, send)
+  File "/home/ds2/du/exams-be/env/lib/python3.10/site-packages/starlette/middleware/gzip.py", line 42, in __call__
+    await self.app(scope, receive, self.send_with_gzip)
+  File "/home/ds2/du/exams-be/env/lib/python3.10/site-packages/starlette/middleware/cors.py", line 92, in __call__
+    await self.simple_response(scope, receive, send, request_headers=headers)
+  File "/home/ds2/du/exams-be/env/lib/python3.10/site-packages/starlette/middleware/cors.py", line 147, in simple_response
+    await self.app(scope, receive, send)
+  File "/home/ds2/du/exams-be/env/lib/python3.10/site-packages/starlette/exceptions.py", line 82, in __call__
+    raise exc
+  File "/home/ds2/du/exams-be/env/lib/python3.10/site-packages/starlette/exceptions.py", line 71, in __call__
+    await self.app(scope, receive, sender)
+  File "/home/ds2/du/exams-be/env/lib/python3.10/site-packages/starlette/routing.py", line 656, in __call__
+    await route.handle(scope, receive, send)
+  File "/home/ds2/du/exams-be/env/lib/python3.10/site-packages/starlette/routing.py", line 259, in handle
+    await self.app(scope, receive, send)
+  File "/home/ds2/du/exams-be/env/lib/python3.10/site-packages/starlette/routing.py", line 64, in app
+    await response(scope, receive, send)
+  File "/home/ds2/du/exams-be/env/lib/python3.10/site-packages/starlette/responses.py", line 302, in __call__
+    raise RuntimeError(f"File at path {self.path} does not exist.")
+RuntimeError: File at path  does not exist.
+ERROR:uvicorn.error:Exception in ASGI application
+Traceback (most recent call last):
+  File "/home/ds2/du/exams-be/env/lib/python3.10/site-packages/starlette/responses.py", line 299, in __call__
+    stat_result = await anyio.to_thread.run_sync(os.stat, self.path)
+  File "/home/ds2/du/exams-be/env/lib/python3.10/site-packages/anyio/to_thread.py", line 31, in run_sync
+    return await get_asynclib().run_sync_in_worker_thread(
+  File "/home/ds2/du/exams-be/env/lib/python3.10/site-packages/anyio/_backends/_asyncio.py", line 937, in run_sync_in_worker_thread
+    return await future
+  File "/home/ds2/du/exams-be/env/lib/python3.10/site-packages/anyio/_backends/_asyncio.py", line 867, in run
+    result = context.run(func, *args)
+FileNotFoundError: [Errno 2] No such file or directory: ''
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/ds2/du/exams-be/env/lib/python3.10/site-packages/uvicorn/protocols/http/h11_impl.py", line 366, in run_asgi
+    result = await app(self.scope, self.receive, self.send)
+  File "/home/ds2/du/exams-be/env/lib/python3.10/site-packages/uvicorn/middleware/proxy_headers.py", line 75, in __call__
+    return await self.app(scope, receive, send)
+  File "/home/ds2/du/exams-be/env/lib/python3.10/site-packages/fastapi/applications.py", line 212, in __call__
+    await super().__call__(scope, receive, send)
+  File "/home/ds2/du/exams-be/env/lib/python3.10/site-packages/starlette/applications.py", line 112, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "/home/ds2/du/exams-be/env/lib/python3.10/site-packages/starlette/middleware/errors.py", line 181, in __call__
+    raise exc
+  File "/home/ds2/du/exams-be/env/lib/python3.10/site-packages/starlette/middleware/errors.py", line 159, in __call__
+    await self.app(scope, receive, _send)
+  File "/home/ds2/du/exams-be/env/lib/python3.10/site-packages/starlette/middleware/gzip.py", line 23, in __call__
+    await responder(scope, receive, send)
+  File "/home/ds2/du/exams-be/env/lib/python3.10/site-packages/starlette/middleware/gzip.py", line 42, in __call__
+    await self.app(scope, receive, self.send_with_gzip)
+  File "/home/ds2/du/exams-be/env/lib/python3.10/site-packages/starlette/middleware/cors.py", line 92, in __call__
+    await self.simple_response(scope, receive, send, request_headers=headers)
+  File "/home/ds2/du/exams-be/env/lib/python3.10/site-packages/starlette/middleware/cors.py", line 147, in simple_response
+    await self.app(scope, receive, send)
+  File "/home/ds2/du/exams-be/env/lib/python3.10/site-packages/starlette/exceptions.py", line 82, in __call__
+    raise exc
+  File "/home/ds2/du/exams-be/env/lib/python3.10/site-packages/starlette/exceptions.py", line 71, in __call__
+    await self.app(scope, receive, sender)
+  File "/home/ds2/du/exams-be/env/lib/python3.10/site-packages/starlette/routing.py", line 656, in __call__
+    await route.handle(scope, receive, send)
+  File "/home/ds2/du/exams-be/env/lib/python3.10/site-packages/starlette/routing.py", line 259, in handle
+    await self.app(scope, receive, send)
+  File "/home/ds2/du/exams-be/env/lib/python3.10/site-packages/starlette/routing.py", line 64, in app
+    await response(scope, receive, send)
+  File "/home/ds2/du/exams-be/env/lib/python3.10/site-packages/starlette/responses.py", line 302, in __call__
+    raise RuntimeError(f"File at path {self.path} does not exist.")
+RuntimeError: File at path  does not exist.
+INFO:     113.185.55.100:48529 - "GET /resourse/62845c181401b8cfe72a8797/all?mode=preview&resourse_type=file HTTP/1.1" 200 OK
+INFO:     113.185.55.100:17357 - "GET /resourse/62845c181401b8cfe72a8797/video HTTP/1.1" 500 Internal Server Error
+ERROR:    Exception in ASGI application
+Traceback (most recent call last):
+  File "/home/ds2/du/exams-be/env/lib/python3.10/site-packages/starlette/responses.py", line 299, in __call__
+    stat_result = await anyio.to_thread.run_sync(os.stat, self.path)
+  File "/home/ds2/du/exams-be/env/lib/python3.10/site-packages/anyio/to_thread.py", line 31, in run_sync
+    return await get_asynclib().run_sync_in_worker_thread(
+  File "/home/ds2/du/exams-be/env/lib/python3.10/site-packages/anyio/_backends/_asyncio.py", line 937, in run_sync_in_worker_thread
+    return await future
+  File "/home/ds2/du/exams-be/env/lib/python3.10/site-packages/anyio/_backends/_asyncio.py", line 867, in run
+    result = context.run(func, *args)
+FileNotFoundError: [Errno 2] No such file or directory: ''
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/ds2/du/exams-be/env/lib/python3.10/site-packages/uvicorn/protocols/http/h11_impl.py", line 366, in run_asgi
+    result = await app(self.scope, self.receive, self.send)
+  File "/home/ds2/du/exams-be/env/lib/python3.10/site-packages/uvicorn/middleware/proxy_headers.py", line 75, in __call__
+    return await self.app(scope, receive, send)
+  File "/home/ds2/du/exams-be/env/lib/python3.10/site-packages/fastapi/applications.py", line 212, in __call__
+    await super().__call__(scope, receive, send)
+  File "/home/ds2/du/exams-be/env/lib/python3.10/site-packages/starlette/applications.py", line 112, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "/home/ds2/du/exams-be/env/lib/python3.10/site-packages/starlette/middleware/errors.py", line 181, in __call__
+    raise exc
+  File "/home/ds2/du/exams-be/env/lib/python3.10/site-packages/starlette/middleware/errors.py", line 159, in __call__
+    await self.app(scope, receive, _send)
+  File "/home/ds2/du/exams-be/env/lib/python3.10/site-packages/starlette/middleware/gzip.py", line 23, in __call__
+    await responder(scope, receive, send)
+  File "/home/ds2/du/exams-be/env/lib/python3.10/site-packages/starlette/middleware/gzip.py", line 42, in __call__
+    await self.app(scope, receive, self.send_with_gzip)
+  File "/home/ds2/du/exams-be/env/lib/python3.10/site-packages/starlette/middleware/cors.py", line 92, in __call__
+    await self.simple_response(scope, receive, send, request_headers=headers)
+  File "/home/ds2/du/exams-be/env/lib/python3.10/site-packages/starlette/middleware/cors.py", line 147, in simple_response
+    await self.app(scope, receive, send)
+  File "/home/ds2/du/exams-be/env/lib/python3.10/site-packages/starlette/exceptions.py", line 82, in __call__
+    raise exc
+  File "/home/ds2/du/exams-be/env/lib/python3.10/site-packages/starlette/exceptions.py", line 71, in __call__
+    await self.app(scope, receive, sender)
+  File "/home/ds2/du/exams-be/env/lib/python3.10/site-packages/starlette/routing.py", line 656, in __call__
+    await route.handle(scope, receive, send)
+  File "/home/ds2/du/exams-be/env/lib/python3.10/site-packages/starlette/routing.py", line 259, in handle
+    await self.app(scope, receive, send)
+  File "/home/ds2/du/exams-be/env/lib/python3.10/site-packages/starlette/routing.py", line 64, in app
+    await response(scope, receive, send)
+  File "/home/ds2/du/exams-be/env/lib/python3.10/site-packages/starlette/responses.py", line 302, in __call__
+    raise RuntimeError(f"File at path {self.path} does not exist.")
+RuntimeError: File at path  does not exist.
+ERROR:uvicorn.error:Exception in ASGI application
+Traceback (most recent call last):
+  File "/home/ds2/du/exams-be/env/lib/python3.10/site-packages/starlette/responses.py", line 299, in __call__
+    stat_result = await anyio.to_thread.run_sync(os.stat, self.path)
+  File "/home/ds2/du/exams-be/env/lib/python3.10/site-packages/anyio/to_thread.py", line 31, in run_sync
+    return await get_asynclib().run_sync_in_worker_thread(
+  File "/home/ds2/du/exams-be/env/lib/python3.10/site-packages/anyio/_backends/_asyncio.py", line 937, in run_sync_in_worker_thread
+    return await future
+  File "/home/ds2/du/exams-be/env/lib/python3.10/site-packages/anyio/_backends/_asyncio.py", line 867, in run
+    result = context.run(func, *args)
+FileNotFoundError: [Errno 2] No such file or directory: ''
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/ds2/du/exams-be/env/lib/python3.10/site-packages/uvicorn/protocols/http/h11_impl.py", line 366, in run_asgi
+    result = await app(self.scope, self.receive, self.send)
+  File "/home/ds2/du/exams-be/env/lib/python3.10/site-packages/uvicorn/middleware/proxy_headers.py", line 75, in __call__
+    return await self.app(scope, receive, send)
+  File "/home/ds2/du/exams-be/env/lib/python3.10/site-packages/fastapi/applications.py", line 212, in __call__
+    await super().__call__(scope, receive, send)
+  File "/home/ds2/du/exams-be/env/lib/python3.10/site-packages/starlette/applications.py", line 112, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "/home/ds2/du/exams-be/env/lib/python3.10/site-packages/starlette/middleware/errors.py", line 181, in __call__
+    raise exc
+  File "/home/ds2/du/exams-be/env/lib/python3.10/site-packages/starlette/middleware/errors.py", line 159, in __call__
+    await self.app(scope, receive, _send)
+  File "/home/ds2/du/exams-be/env/lib/python3.10/site-packages/starlette/middleware/gzip.py", line 23, in __call__
+    await responder(scope, receive, send)
+  File "/home/ds2/du/exams-be/env/lib/python3.10/site-packages/starlette/middleware/gzip.py", line 42, in __call__
+    await self.app(scope, receive, self.send_with_gzip)
+  File "/home/ds2/du/exams-be/env/lib/python3.10/site-packages/starlette/middleware/cors.py", line 92, in __call__
+    await self.simple_response(scope, receive, send, request_headers=headers)
+  File "/home/ds2/du/exams-be/env/lib/python3.10/site-packages/starlette/middleware/cors.py", line 147, in simple_response
+    await self.app(scope, receive, send)
+  File "/home/ds2/du/exams-be/env/lib/python3.10/site-packages/starlette/exceptions.py", line 82, in __call__
+    raise exc
+  File "/home/ds2/du/exams-be/env/lib/python3.10/site-packages/starlette/exceptions.py", line 71, in __call__
+    await self.app(scope, receive, sender)
+  File "/home/ds2/du/exams-be/env/lib/python3.10/site-packages/starlette/routing.py", line 656, in __call__
+    await route.handle(scope, receive, send)
+  File "/home/ds2/du/exams-be/env/lib/python3.10/site-packages/starlette/routing.py", line 259, in handle
+    await self.app(scope, receive, send)
+  File "/home/ds2/du/exams-be/env/lib/python3.10/site-packages/starlette/routing.py", line 64, in app
+    await response(scope, receive, send)
+  File "/home/ds2/du/exams-be/env/lib/python3.10/site-packages/starlette/responses.py", line 302, in __call__
+    raise RuntimeError(f"File at path {self.path} does not exist.")
+RuntimeError: File at path  does not exist.
+INFO:     113.185.55.100:50926 - "GET /resourse/62845c181401b8cfe72a8797/all?mode=preview&resourse_type=file HTTP/1.1" 200 OK
+INFO:     113.185.55.100:31056 - "OPTIONS /resourse/62845d5e1401b8cfe72a879c/video HTTP/1.1" 200 OK
+INFO:     113.185.55.100:48572 - "OPTIONS /resourse/62845d5e1401b8cfe72a879c/all?mode=preview&resourse_type=file HTTP/1.1" 200 OK
+INFO:     113.185.55.100:20500 - "GET /resourse/62845d5e1401b8cfe72a879c/video HTTP/1.1" 500 Internal Server Error
+ERROR:    Exception in ASGI application
+Traceback (most recent call last):
+  File "/home/ds2/du/exams-be/env/lib/python3.10/site-packages/starlette/responses.py", line 299, in __call__
+    stat_result = await anyio.to_thread.run_sync(os.stat, self.path)
+  File "/home/ds2/du/exams-be/env/lib/python3.10/site-packages/anyio/to_thread.py", line 31, in run_sync
+    return await get_asynclib().run_sync_in_worker_thread(
+  File "/home/ds2/du/exams-be/env/lib/python3.10/site-packages/anyio/_backends/_asyncio.py", line 937, in run_sync_in_worker_thread
+    return await future
+  File "/home/ds2/du/exams-be/env/lib/python3.10/site-packages/anyio/_backends/_asyncio.py", line 867, in run
+    result = context.run(func, *args)
+FileNotFoundError: [Errno 2] No such file or directory: ''
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/ds2/du/exams-be/env/lib/python3.10/site-packages/uvicorn/protocols/http/h11_impl.py", line 366, in run_asgi
+    result = await app(self.scope, self.receive, self.send)
+  File "/home/ds2/du/exams-be/env/lib/python3.10/site-packages/uvicorn/middleware/proxy_headers.py", line 75, in __call__
+    return await self.app(scope, receive, send)
+  File "/home/ds2/du/exams-be/env/lib/python3.10/site-packages/fastapi/applications.py", line 212, in __call__
+    await super().__call__(scope, receive, send)
+  File "/home/ds2/du/exams-be/env/lib/python3.10/site-packages/starlette/applications.py", line 112, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "/home/ds2/du/exams-be/env/lib/python3.10/site-packages/starlette/middleware/errors.py", line 181, in __call__
+    raise exc
+  File "/home/ds2/du/exams-be/env/lib/python3.10/site-packages/starlette/middleware/errors.py", line 159, in __call__
+    await self.app(scope, receive, _send)
+  File "/home/ds2/du/exams-be/env/lib/python3.10/site-packages/starlette/middleware/gzip.py", line 23, in __call__
+    await responder(scope, receive, send)
+  File "/home/ds2/du/exams-be/env/lib/python3.10/site-packages/starlette/middleware/gzip.py", line 42, in __call__
+    await self.app(scope, receive, self.send_with_gzip)
+  File "/home/ds2/du/exams-be/env/lib/python3.10/site-packages/starlette/middleware/cors.py", line 92, in __call__
+    await self.simple_response(scope, receive, send, request_headers=headers)
+  File "/home/ds2/du/exams-be/env/lib/python3.10/site-packages/starlette/middleware/cors.py", line 147, in simple_response
+    await self.app(scope, receive, send)
+  File "/home/ds2/du/exams-be/env/lib/python3.10/site-packages/starlette/exceptions.py", line 82, in __call__
+    raise exc
+  File "/home/ds2/du/exams-be/env/lib/python3.10/site-packages/starlette/exceptions.py", line 71, in __call__
+    await self.app(scope, receive, sender)
+  File "/home/ds2/du/exams-be/env/lib/python3.10/site-packages/starlette/routing.py", line 656, in __call__
+    await route.handle(scope, receive, send)
+  File "/home/ds2/du/exams-be/env/lib/python3.10/site-packages/starlette/routing.py", line 259, in handle
+    await self.app(scope, receive, send)
+  File "/home/ds2/du/exams-be/env/lib/python3.10/site-packages/starlette/routing.py", line 64, in app
+    await response(scope, receive, send)
+  File "/home/ds2/du/exams-be/env/lib/python3.10/site-packages/starlette/responses.py", line 302, in __call__
+    raise RuntimeError(f"File at path {self.path} does not exist.")
+RuntimeError: File at path  does not exist.
+ERROR:uvicorn.error:Exception in ASGI application
+Traceback (most recent call last):
+  File "/home/ds2/du/exams-be/env/lib/python3.10/site-packages/starlette/responses.py", line 299, in __call__
+    stat_result = await anyio.to_thread.run_sync(os.stat, self.path)
+  File "/home/ds2/du/exams-be/env/lib/python3.10/site-packages/anyio/to_thread.py", line 31, in run_sync
+    return await get_asynclib().run_sync_in_worker_thread(
+  File "/home/ds2/du/exams-be/env/lib/python3.10/site-packages/anyio/_backends/_asyncio.py", line 937, in run_sync_in_worker_thread
+    return await future
+  File "/home/ds2/du/exams-be/env/lib/python3.10/site-packages/anyio/_backends/_asyncio.py", line 867, in run
+    result = context.run(func, *args)
+FileNotFoundError: [Errno 2] No such file or directory: ''
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/ds2/du/exams-be/env/lib/python3.10/site-packages/uvicorn/protocols/http/h11_impl.py", line 366, in run_asgi
+    result = await app(self.scope, self.receive, self.send)
+  File "/home/ds2/du/exams-be/env/lib/python3.10/site-packages/uvicorn/middleware/proxy_headers.py", line 75, in __call__
+    return await self.app(scope, receive, send)
+  File "/home/ds2/du/exams-be/env/lib/python3.10/site-packages/fastapi/applications.py", line 212, in __call__
+    await super().__call__(scope, receive, send)
+  File "/home/ds2/du/exams-be/env/lib/python3.10/site-packages/starlette/applications.py", line 112, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "/home/ds2/du/exams-be/env/lib/python3.10/site-packages/starlette/middleware/errors.py", line 181, in __call__
+    raise exc
+  File "/home/ds2/du/exams-be/env/lib/python3.10/site-packages/starlette/middleware/errors.py", line 159, in __call__
+    await self.app(scope, receive, _send)
+  File "/home/ds2/du/exams-be/env/lib/python3.10/site-packages/starlette/middleware/gzip.py", line 23, in __call__
+    await responder(scope, receive, send)
+  File "/home/ds2/du/exams-be/env/lib/python3.10/site-packages/starlette/middleware/gzip.py", line 42, in __call__
+    await self.app(scope, receive, self.send_with_gzip)
+  File "/home/ds2/du/exams-be/env/lib/python3.10/site-packages/starlette/middleware/cors.py", line 92, in __call__
+    await self.simple_response(scope, receive, send, request_headers=headers)
+  File "/home/ds2/du/exams-be/env/lib/python3.10/site-packages/starlette/middleware/cors.py", line 147, in simple_response
+    await self.app(scope, receive, send)
+  File "/home/ds2/du/exams-be/env/lib/python3.10/site-packages/starlette/exceptions.py", line 82, in __call__
+    raise exc
+  File "/home/ds2/du/exams-be/env/lib/python3.10/site-packages/starlette/exceptions.py", line 71, in __call__
+    await self.app(scope, receive, sender)
+  File "/home/ds2/du/exams-be/env/lib/python3.10/site-packages/starlette/routing.py", line 656, in __call__
+    await route.handle(scope, receive, send)
+  File "/home/ds2/du/exams-be/env/lib/python3.10/site-packages/starlette/routing.py", line 259, in handle
+    await self.app(scope, receive, send)
+  File "/home/ds2/du/exams-be/env/lib/python3.10/site-packages/starlette/routing.py", line 64, in app
+    await response(scope, receive, send)
+  File "/home/ds2/du/exams-be/env/lib/python3.10/site-packages/starlette/responses.py", line 302, in __call__
+    raise RuntimeError(f"File at path {self.path} does not exist.")
+RuntimeError: File at path  does not exist.
+INFO:     113.185.55.100:38183 - "GET /resourse/62845d5e1401b8cfe72a879c/all?mode=preview&resourse_type=file HTTP/1.1" 200 OK
+INFO:     113.185.55.100:4716 - "OPTIONS /question/62845e361401b8cfe72a879f?mode=preview HTTP/1.1" 200 OK
+INFO:     113.185.55.100:12325 - "GET /question/62845e361401b8cfe72a879f?mode=preview HTTP/1.1" 200 OK
+INFO:     113.185.55.100:12325 - "GET /course/all/published HTTP/1.1" 200 OK
+INFO:     113.185.55.100:24126 - "OPTIONS /course/all HTTP/1.1" 200 OK
+INFO:     113.185.55.100:3586 - "GET /course/all HTTP/1.1" 200 OK
+INFO:     113.185.55.100:3586 - "OPTIONS /course/1652840598529/infor?mode=goals HTTP/1.1" 200 OK
+INFO:     113.185.55.100:2392 - "GET /course/1652840598529/infor?mode=goals HTTP/1.1" 200 OK
+INFO:     113.185.55.100:2392 - "OPTIONS /course/1652840598529/content/all?mode=preview HTTP/1.1" 200 OK
+INFO:     113.185.55.100:21683 - "GET /course/1652840598529/content/all?mode=preview HTTP/1.1" 200 OK
+INFO:     113.185.55.100:21683 - "GET /course/1652840598529/content/all?mode=preview HTTP/1.1" 200 OK
+INFO:     113.185.55.100:48693 - "GET /question/62845e361401b8cfe72a879f?mode=preview HTTP/1.1" 200 OK
+INFO:     113.185.55.100:48693 - "GET /course/1652840598529/content/all?mode=preview HTTP/1.1" 200 OK
+INFO:     113.185.55.100:48693 - "OPTIONS /coding/content/628460151401b8cfe72a87a5/function_template?language=java HTTP/1.1" 200 OK
+INFO:     113.185.55.100:42833 - "GET /coding/content/628460151401b8cfe72a87a5/function_template?language=java HTTP/1.1" 200 OK

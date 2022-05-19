@@ -25,6 +25,8 @@ for router in api_router_list:
 
 #CORS
 origins = [
+    "https://localhost:4300",
+    "http://localhost:4300",
     "http://45.77.245.61:9920",
     "http://localhost:4200",
     "https://localhost:4200"

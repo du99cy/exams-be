@@ -86,6 +86,7 @@ class Python(Language):
 
         except Exception as exp:
             exp_detail = traceback.format_exc()
+            
             return {'is_compile_error': True, 'detail': exp_detail}
 
         finally:

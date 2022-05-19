@@ -61,9 +61,9 @@ async def get_video_of_content(content_id: str = Path(...), mode: str | None = Q
     # initialize
     file_path = ''
     # mode is preview then check current user is instructor
-    if mode == 'preview':
-        video_resourse_doc = await resourse_collection.find_one({"content_id": content_id, "instructor_id": current_user.id, "type_code": 0, "is_deleted": False}, {"file": 1})
-        file_path = video_resourse_doc['file']
+    #if mode == 'preview':
+    video_resourse_doc = await resourse_collection.find_one({"content_id": content_id,"instructor_id":current_user.id, "type_code": 0, "is_deleted": False}, {"file": 1})
+    file_path = video_resourse_doc['file']
 
     # mode is for student then check user have enrolled in that course
 
@@ -119,3 +119,4 @@ async def getAllResourses(content_id: str = Path(...), current_user=Depends(get_
         resourses_model = Resource(**resourse,id=str(resourse["_id"]))    
         resourses.append(resourses_model.dict())
     return responseModel(data=resourses)
+    

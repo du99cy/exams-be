@@ -89,6 +89,7 @@ def create_access_token(data: dict, expires_delta: Optional[timedelta] = None):
 async def get_current_user(
     security_scopes: SecurityScopes, token: str = Depends(oauth2_scheme)
 ):
+    
     if security_scopes.scopes:
         authenticate_value = f'Bearer scope="{security_scopes.scope_str}"'
     else:
@@ -100,6 +101,7 @@ async def get_current_user(
     )
     try:
         payload = jwt.decode(token, SECRET_KEY, algorithms=[ALGORITHM])
+        
         user_json  = payload.get("sub")
         user = json.loads(user_json)
         if user is None:
