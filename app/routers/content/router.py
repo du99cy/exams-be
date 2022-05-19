@@ -33,7 +33,7 @@ async def add_lecture(current_user=Depends(get_current_active_user), content: Co
 
         await course_collection.update_one({"id": content.course_id, "instructor_id": current_user.id}, {"$push": {"order_contents": str(insert_result.inserted_id)}})
 
-        return responseModel(status_code=200)
+        return responseModel(status_code=200,data=str(insert_result.inserted_id))
     except Exception as exp:
         raise HTTPException(status_code=400, detail="mongodb error")
 
@@ -44,10 +44,12 @@ async def updateAContent(content_id: str = Path(...), content_body_update: Conte
     content_collection = await get_collection_client(CONTENT_COLLECTION_NAME)
 
     content_body_update = content_body_update.dict(exclude_unset=True)
-
+    #if exists id the delete it
+    if content_body_update.get("id") is not None:
+        del content_body_update["id"]
     # update to database
     await content_collection.update_one({"_id": ObjectId(content_id), "instructor_id": current_user.id}, {"$set": content_body_update}, False)
-    return responseModel()
+    return responseModel(data=content_id)
 
 
 @apiRouter.get("/{content_id}/resourses")
@@ -59,7 +61,7 @@ async def get_resourses_via_content_id(content_id: str = Path(...), current_user
     file_resourse_list = []
 
     resourse_cusor = resourse_collection.find(
-        {"content_id": content_id, "instructor_id": current_user.id})
+        {"content_id": content_id, "instructor_id": current_user.id,"is_deleted":False})
     async for resourse in resourse_cusor:
         resourse_model = Resource(**resourse, id=str(resourse["_id"]))
         if resourse_model.type_code == 0:
@@ -67,3 +69,13 @@ async def get_resourses_via_content_id(content_id: str = Path(...), current_user
         else:
             file_resourse_list.append(resourse_model)
     return responseModel(data={"video_resourse_list": video_resourse_list, "file_resourse_list": file_resourse_list})
+
+@apiRouter.delete("/{content_id}")
+async def delete_content(content_id: str = Path(...), current_user=Depends(get_current_active_user)):
+    #get collection
+    content_collection = await get_collection_client(CONTENT_COLLECTION_NAME)
+
+    #delete content
+    await content_collection.update_one({"_id": ObjectId(content_id),"instructor_id":current_user.id},{"$set":{"is_deleted":True}})
+
+    return responseModel(data=content_id)

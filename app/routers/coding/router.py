@@ -1,3 +1,5 @@
+from routers.coding.models.cpp import Cpp
+from routers.coding.models.java import Java
 from .models.testcase_check import Testcase_Check
 from ..config import FUNCTION_COLLECTION_NAME, TESTCASE_COLLECTION_NAME, CREDENTIALS_EXCEPTION, CONTENT_COLLECTION_NAME
 import time
@@ -62,12 +64,20 @@ async def run_testcase(content_id: str = Path(...), current_user=Depends(get_cur
     async for testcase in testcase_cursor:
         testcase_model = Testcase(**testcase,id=str(testcase["_id"]))
         testcases.append(testcase_model)
+    
+
+    # python  = Python(function_model,script,testcases)
+    java = Java(function_model,script,testcases)
+    python=Python(function_model,script,testcases)
+    # testcases_result = await python.run_testcase()
+    if language_program_name == 'java':
         
-    python  = Python(function_model,script,testcases)
-    
-    testcases_result = await python.run_testcase()
-    
-    return responseModel(data = testcases_result)
+        testcases_result = await java.run_testcase()
+        return responseModel(data = testcases_result)
+    else:
+       
+        testcases_result = await python.run_testcase()
+        return responseModel(data = testcases_result)
         
     
     

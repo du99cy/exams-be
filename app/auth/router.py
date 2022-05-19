@@ -1,9 +1,10 @@
 from fastapi import APIRouter, Body, HTTPException
-from core.constants import CONFIRM_TOKEN_URL,FACEBOOK_GRAPH_API_URL
+
+from core.constants import CONFIRM_TOKEN_URL, FACEBOOK_GRAPH_API_URL
 
 from core.constants import TEMPLATE_EMAIL, FORGOT_PASSWORD_EMAIL_TEMP
 from .dependencies import *
-from .models import ConfirmToken, FacebookUser, UserSignUp
+from .models import ChangingPasswordModel, ConfirmToken, FacebookUser, UserSignUp
 from core.database.mongodb import get_collection_client
 from typing import Any
 from core.helpers_func import responseModel
@@ -46,19 +47,33 @@ async def refresh_token(current_user: MailUser = Depends(get_current_active_user
 
 @api_router.get("/users/me/")
 async def read_users_me(current_user: MailUser = Depends(get_current_active_user)):
-
-    return responseModel(data=current_user.dict())
-
-@api_router.patch("/users/me")
-async def update_users_me(current_user=Depends(get_current_active_user),userUpdateBody:User = Body(...)):
-    #get collections
+    # get collections
+    
     user_collection = await get_collection_client(USER_COLLECTION)
-    
+    user_dict = await user_collection.find_one({"_id": ObjectId(current_user.id)})
+    if user_dict :
+        if user_dict.get('id') is not None:
+            del user_dict['id']
+        user_model = MailUser(**user_dict, id=str(user_dict["_id"])) if user_dict["account_type"] == "mail" else FacebookUser(
+        **user_dict, id=str(user_dict["_id"]))
+        return responseModel(data=user_model.dict())
+    return None
+
+
+@api_router.patch("/users/me/")
+async def update_users_me(current_user=Depends(get_current_active_user), userUpdateBody: User = Body(...)):
+    # get collections
+    user_collection = await get_collection_client(USER_COLLECTION)
+
     body_update_user_dict = userUpdateBody.dict(exclude_unset=True)
-    
-    await user_collection.update_one({"_id":ObjectId(current_user.id)},{"$set":body_update_user_dict},False)
-    
+
+    if body_update_user_dict.get("id") is not None:
+        del body_update_user_dict["id"]
+
+    await user_collection.update_one({"_id": ObjectId(current_user.id), "enabled": True}, {"$set": body_update_user_dict}, False)
+
     return responseModel()
+
 
 @api_router.post("/sign-up")
 async def sign_up(user_data: UserSignUp = Body(...)) -> Any:
@@ -67,10 +82,10 @@ async def sign_up(user_data: UserSignUp = Body(...)) -> Any:
     # initialize user id
     user_id = 0
     # check email is exists
-    user_email_exists = await user_collection.find_one({"email": user_data.email})
+    user_email_exists = await user_collection.find_one({"email": user_data.email, "enabled": True})
     user_id = user_email_exists["_id"] if user_email_exists else user_id
     # save user data to user collection if not exists or user exists and not enabled(not activate)
-    if not user_email_exists or not user_email_exists['enabled']:
+    if not user_email_exists:
         hashed_password = get_password_hash(user_data.password)
         user_insert_data_db_model = UserInDB(
             **user_data.dict(), hashed_password=hashed_password)
@@ -81,7 +96,7 @@ async def sign_up(user_data: UserSignUp = Body(...)) -> Any:
     # if email exist and enabled or locked
     else:
         # if user_email_exists["enabled"]:
-        return responseModel(message="email is existed", status_code=400)
+        raise HTTPException(status_code=400, detail="email is existed")
 
     # create a token
     token = ObjectId()
@@ -184,23 +199,43 @@ async def authenticate_FB(access_token: str = Body(...)):
     user_infor_model = FacebookUser()
     facebook_id = user_data_from_fb_api.get("id")
     # condition to find exist user
-    find_user_exist_condition = {"facebook_id":facebook_id }
+    find_user_exist_condition = {"facebook_id": facebook_id}
     # check exist user
     user_exists = await user_collection.find_one(find_user_exist_condition)
     # if not exist then save to mongo db
     if not user_exists:
-        user_infor_model = FacebookUser(**user_data_from_fb_api,facebook_id=facebook_id,avatar_pic=user_data_from_fb_api['picture']['data']['url'])
+        user_infor_model = FacebookUser(**user_data_from_fb_api, facebook_id=facebook_id,
+                                        avatar_pic=user_data_from_fb_api['picture']['data']['url'])
         insert_result = await user_collection.insert_one(user_infor_model.dict())
-        #get _id
+        # get _id
         user_id = insert_result.inserted_id
         user_infor_model.id = str(user_id)
-        
+
     else:
         user_infor_model = FacebookUser(**user_exists)
         user_infor_model.id = str(user_exists["_id"])
         # create token
         access_token = create_access_token(
             data={"sub": json.dumps(user_infor_model.dict()), "scopes": ["later"]})
-        
-    token = Token(user_infor=user_infor_model,access_token=access_token)
-    return responseModel(data = jsonable_encoder(token.dict()))
+
+    token = Token(user_infor=user_infor_model, access_token=access_token)
+    return responseModel(data=jsonable_encoder(token.dict()))
+
+@api_router.post("/changing-password")
+async def change_password(changingPassword:ChangingPasswordModel= Body(...),current_user=Depends(get_current_active_user)):
+    #get collectins
+    user_collections= await get_collection_client(USER_COLLECTION)
+    
+    user_information = await user_collections.find_one({"_id":ObjectId(current_user.id)})
+    
+    #check password of user
+    is_right = await verify_password(changingPassword.old_password,user_information["hashed_password"])
+    
+    if is_right:
+        new_hashed_password = await get_password_hash(changingPassword.new_password)
+        #update new to database
+        await user_collections.update_one({"_id":ObjectId(current_user.id)},{"$set":{"hashed_password":new_hashed_password}},False)
+        return responseModel(data=current_user.id)
+    else:
+        raise HTTPException(status_code="400",detail="wrong password")
+    

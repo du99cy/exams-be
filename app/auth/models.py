@@ -20,7 +20,7 @@ class User(BaseModel):
     youtube_link: Optional[str] = None
     website_link: Optional[str] = None
     twitter_link: Optional[str] = None
-    role_id: Optional[str] = None
+    role_id: Optional[Any] = None
 
 
 class FacebookUser(User):
@@ -61,3 +61,7 @@ class Token(BaseModel):
     access_token: str | None = None
     token_type: str = Field("bearer")
     expire_token_time_minutes: int  = Field(ACCESS_TOKEN_EXPIRE_MINUTES)
+
+class ChangingPasswordModel(BaseModel):
+    old_password:str
+    new_password:str
