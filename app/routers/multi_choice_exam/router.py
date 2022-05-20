@@ -24,8 +24,10 @@ async def get_multichoice_exam_his(content_id:str = Path(...),current_user=Depen
     return responseModel(data=exam_his_list)
 
 @multichoice_exam_router.get("/{multichoice_exam_id}")
-async def get_multichoice_exam_his_details(multichoice_exam_id:str = Path(...),current_user=Depends(get_current_active_user)):
+async def get_multichoice_exam_his_details(multichoice_exam_id:str = Path(...), current_user=Depends(get_current_active_user)):
+    
     # get collections
+
     multichoice_exam_collection = await get_collection_client(MULTIPLE_CHOICES_COLLECTION_NAME)
 
     multichoice_exam = await multichoice_exam_collection.find_one({"_id":ObjectId(multichoice_exam_id),"user_id":current_user.id})

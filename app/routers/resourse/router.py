@@ -53,16 +53,21 @@ async def add_resourse(current_user=Depends(get_current_active_user), resourse: 
 
 
 @api_router.get("/{content_id}/video", response_class=FileResponse)
-async def get_video_of_content(content_id: str = Path(...), mode: str | None = Query(None), current_user=Depends(get_current_active_user)):
+async def get_video_of_content(content_id: str = Path(...),current_user=Depends(get_current_active_user)):
     # get collections
-    content_collection = await get_collection_client(CONTENT_COLLECTION_NAME)
+    course_collection = await get_collection_client(COURSE_COLLECTION_NAME)
     resourse_collection = await get_collection_client(RESOURSE_COLLECTION_NAME)
 
     # initialize
     file_path = ''
     # mode is preview then check current user is instructor
     #if mode == 'preview':
-    video_resourse_doc = await resourse_collection.find_one({"content_id": content_id,"instructor_id":current_user.id, "type_code": 0, "is_deleted": False}, {"file": 1})
+    video_resourse_doc = await resourse_collection.find_one({"content_id": content_id,"type_code": 0, "is_deleted": False}, {"file": 1,"course_id":1})
+
+    #check auth
+    is_allow = await course_collection.find_one({"id":video_resourse_doc["course_id"],"$or":[{"instructor_id": current_user.id},{"learners_id":{"$in":[current_user.id]}}]})
+    if not is_allow:
+        raise CREDENTIALS_EXCEPTION
     file_path = video_resourse_doc['file']
 
     # mode is for student then check user have enrolled in that course

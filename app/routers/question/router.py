@@ -36,9 +36,14 @@ async def add_question(current_user=Depends(get_current_active_user), question_b
 @api_router.get("/{content_id}")
 async def get_all_question_via_content_id(content_id: str = Path(...), current_user=Depends(get_current_active_user), mode: str = Query("learning")):
     # get collections
-    content_collection = await get_collection_client(CONTENT_COLLECTION_NAME)
+    course_collection = await get_collection_client(COURSE_COLLECTION_NAME)
     question_collection = await get_collection_client(QUESTION_COLLECTION_NAME)
-
+    content_collection = await  get_collection_client(CONTENT_COLLECTION_NAME)
+    #check auth 
+    content = await content_collection.find_one({"_id":ObjectId(content_id)},{"course_id":1})
+    allow = await course_collection.find_one({"id":content["course_id"],"$or":[{"instructor_id": current_user.id},{"learners_id":{"$in":[current_user.id]}}]})
+    if not allow:
+        raise CREDENTIALS_EXCEPTION
     # initialize list returned
     question_list = []
     # if mode is preview
