@@ -125,4 +125,4 @@ async def getAllResourses(content_id: str = Path(...), current_user=Depends(get_
         resourses_model = Resource(**resourse,id=str(resourse["_id"]))    
         resourses.append(resourses_model.dict())
     return responseModel(data=resourses)
-    
+

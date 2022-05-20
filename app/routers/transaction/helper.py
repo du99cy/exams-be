@@ -1,7 +1,7 @@
 from auth.helper_func import get_user_information
 from routers.course.helper import get_all_course
 from core.database.mongodb import get_collection_client
-from ..config import TRANSACTION_COLLECTION_NAME,COURSE_COLLECTION_NAME,USER_COLLECTION
+from ..config import CREDENTIALS_EXCEPTION, TRANSACTION_COLLECTION_NAME,COURSE_COLLECTION_NAME,USER_COLLECTION
 from typing import List
 from routers.course.model import Course, CourseSummaryInHomePage
 from .model import TransactionPost, TransactionSaveToDB
@@ -69,4 +69,17 @@ async def get_transaction_history_fnc(user_id:str):
     return orders
 
 
-
+async def get_best_seller_func(user_id:str):
+    best_seller_list = []
+    #get collection
+    transaction_collection = await get_collection_client(TRANSACTION_COLLECTION_NAME)
+    user_collection = await get_collection_client(USER_COLLECTION)
+    
+    #get user information
+    user = await get_user_information(user_id)
+    # if user.role_id !=1:
+    #     raise CREDENTIALS_EXCEPTION
+    result = transaction_collection.aggregate([{"$group":{"_id":{"course_id":"$course.id","title":"$course.title","img":"$course.img_name","category":"$course.category","price":"$course.price"},"count":{"$sum":1}}}])
+    async for r in result:
+        best_seller_list.append(r)
+    return best_seller_list
