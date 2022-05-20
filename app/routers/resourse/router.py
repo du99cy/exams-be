@@ -80,15 +80,16 @@ async def get_video_of_content(content_id: str = Path(...),current_user=Depends(
 async def get_file_response(resourse_id: str = Path(...), current_user=Depends(get_current_active_user), mode: str = Query('preview')):
     # get collections
     resourse_collection = await get_collection_client(RESOURSE_COLLECTION_NAME)
+    course_collection = await get_collection_client(COURSE_COLLECTION_NAME)
     # initilize
     query = {"_id": ObjectId(resourse_id), "is_deleted": False}
     # if it is instructor
-    if mode == 'preview':
-        query.update({"instructor_id": current_user.id})
-    else:
-        # just a student
-        pass
+    
     resourse_data = await resourse_collection.find_one(query)
+    #check auth 
+    allow = await course_collection.find_one({"id":resourse_data["course_id"] ,"$or":[{"instructor_id": current_user.id},{"learners_id":{"$in":[current_user.id]}}]})
+    if not allow:
+        raise CREDENTIALS_EXCEPTION
     return resourse_data["file"]
 
 
