@@ -27,7 +27,7 @@ async def payment(request: Request, recharge: Recharge = Body(...)):
     vnp.requestData['vnp_Version'] = '2.1.0'
     vnp.requestData['vnp_Command'] = 'pay'
     vnp.requestData['vnp_TmnCode'] = VNPAY_TMN_CODE
-    vnp.requestData['vnp_Amount'] = amount *100
+    vnp.requestData['vnp_Amount'] = int(amount)
     vnp.requestData['vnp_CurrCode'] = 'VND'
     vnp.requestData['vnp_TxnRef'] = order_id
     vnp.requestData['vnp_OrderInfo'] = order_desc
@@ -45,7 +45,7 @@ async def payment(request: Request, recharge: Recharge = Body(...)):
     vnp.requestData['vnp_IpAddr'] = ipaddr
     vnp.requestData['vnp_ReturnUrl'] = VNPAY_RETURN_URL
     vnpay_payment_url = vnp.get_payment_url(VNPAY_PAYMENT_URL, VNPAY_HASH_SECRET_KEY)
-
+    
     return responseModel(data=vnpay_payment_url)
 
 
@@ -54,7 +54,7 @@ async def postIPN(order = Body(...),current_user=Depends(get_current_active_user
     
     vnp = vnpay()
     vnp.responseData = order
-    order["vnp_Amount"] =  order["vnp_Amount"] /100
+    order["vnp_Amount"] =  int(order["vnp_Amount"])
     vnp_ResponseCode = order['vnp_ResponseCode']
     if vnp.validate_response(VNPAY_HASH_SECRET_KEY):
     # Check & Update Order Status in your Database

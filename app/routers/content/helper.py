@@ -3,6 +3,7 @@ from core.database.mongodb import get_collection_client
 from ..config import COURSE_COLLECTION_NAME,CONTENT_COLLECTION_NAME
 from typing import List
 from bson.objectid import ObjectId
+
 async def get_content(course_id:str):
     #initialize 
     content_all = []
@@ -19,3 +20,4 @@ async def get_content(course_id:str):
             content_model = ContentDisplayForUser(**content,id=str(content["_id"]))
             content_all.append(content_model.dict())
     return content_all
+

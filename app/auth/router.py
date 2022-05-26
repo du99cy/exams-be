@@ -229,13 +229,15 @@ async def change_password(changingPassword:ChangingPasswordModel= Body(...),curr
     user_information = await user_collections.find_one({"_id":ObjectId(current_user.id)})
     
     #check password of user
-    is_right = await verify_password(changingPassword.old_password,user_information["hashed_password"])
+    is_right = verify_password(changingPassword.old_password,user_information["hashed_password"])
     
     if is_right:
-        new_hashed_password = await get_password_hash(changingPassword.new_password)
+    
+        new_hashed_password = get_password_hash(changingPassword.new_password)
+        
         #update new to database
         await user_collections.update_one({"_id":ObjectId(current_user.id)},{"$set":{"hashed_password":new_hashed_password}},False)
         return responseModel(data=current_user.id)
     else:
-        raise HTTPException(status_code="400",detail="wrong password")
+        raise HTTPException(status_code=400,detail="wrong password")
     

@@ -1,7 +1,7 @@
 from routers.coding.models.cpp import Cpp
 from routers.coding.models.java import Java
 from .models.testcase_check import Testcase_Check
-from ..config import FUNCTION_COLLECTION_NAME, TESTCASE_COLLECTION_NAME, CREDENTIALS_EXCEPTION, CONTENT_COLLECTION_NAME
+from ..config import COURSE_COLLECTION_NAME, FUNCTION_COLLECTION_NAME, TESTCASE_COLLECTION_NAME, CREDENTIALS_EXCEPTION, CONTENT_COLLECTION_NAME
 import time
 from bson.objectid import ObjectId
 from ..content.model import Content
@@ -23,12 +23,16 @@ async def get_fucntion_template(content_id: str = Path(...), language: LanguageT
     function_collection = await get_collection_client(FUNCTION_COLLECTION_NAME)
     testcase_collection = await get_collection_client(TESTCASE_COLLECTION_NAME)
     content_collection = await get_collection_client(CONTENT_COLLECTION_NAME)
+    course_collection = await get_collection_client(COURSE_COLLECTION_NAME)
     # query condition
-    conditions = {"content_id": content_id,
-                  "instructor_id": current_user.id, "is_deleted": False}
+    conditions = {"content_id": content_id,"is_deleted": False}
     # get function information
     function_dict = await function_collection.find_one(conditions)
     function_model = Function(**function_dict, id=str(function_dict["_id"]))
+    #check auth
+    allow = await course_collection.find_one({"id":function_model.course_id,"$or":[{"instructor_id":current_user.id},{"learners_id":{"$in":[current_user.id]}}]})
+    if not allow:
+        raise CREDENTIALS_EXCEPTION
     # gen template via function
     template = CodeTemplate(
         language_pro_name=language.value, func=function_model)

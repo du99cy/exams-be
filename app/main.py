@@ -8,7 +8,7 @@ from fastapi.middleware.cors import CORSMiddleware
 from routers import api_router_list
 from fastapi.staticfiles import StaticFiles
 from fastapi.middleware.gzip import GZipMiddleware
-from fastapi_redis_cache import FastApiRedisCache, cache
+# from fastapi_redis_cache import FastApiRedisCache, cache
 app = FastAPI()
 
 #add startup and shutdown event

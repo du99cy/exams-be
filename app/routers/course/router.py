@@ -56,28 +56,21 @@ async def get_all_course(current_user: MailUser = Depends(get_current_active_use
 
 
 @course_router.get("/{course_id}/content/all")
-async def get_all_content(current_user=Depends(get_current_active_user), course_id: str = Path(...),mode:str = Query("learning")):
-    query={"id": course_id}
+async def get_all_content(current_user=Depends(get_current_active_user), course_id: str = Path(...)):
+    query={"id": course_id,"$or":[{"instructor_id": current_user.id},{"learners_id":{"$in":[current_user.id]}}]}
     projection = {"_id": 0, "order_contents": 1}
     
     # get collections
     content_collection = await get_collection_client(CONTENT_COLLECTION_NAME)
     course_collection = await get_collection_client(COURSE_COLLECTION_NAME)
     content_list = []
-    # initialize result list
-    is_admin = await course_collection.find_one({"id":course_id,"instructor_id": current_user.id},projection)
-    if is_admin:
-        ...
     
-    else:
-        user_is_bought = await course_collection.find_one({"id":course_id,"learners_id":{"$in":[current_user.id]}})
-        if not user_is_bought:
-            raise CREDENTIALS_EXCEPTION
-    
-        
     # get content id via order content in course collection
     course_details = await course_collection.find_one(query,projection)
-    
+
+    if not course_details:
+        raise CREDENTIALS_EXCEPTION
+
     order_contents = course_details['order_contents']
 
     # trace for order content list
@@ -146,28 +139,44 @@ async def course_review(course_id: str = Path(...), current_user=Depends(get_cur
 
 
 @course_router.get("/{course_id}/data-stream")
-async def get_course_detail(request: Request, course_id: str = Path(...)):
+async def get_course_detail(course_id: str = Path(...),user_id: str | None= Query(None)):
     
     # get collections
     course_collection = await get_collection_client(COURSE_COLLECTION_NAME)
     # get course infor
     course = await course_collection.find_one({"id": course_id})
+    if not course:
+        raise HTTPException(status_code=404, detail="Not found")
     course_model = CourseInforPublish(**course)
-
+    #check  that course have been add this user
+    user_is_in_course =await course_collection.find_one({"id":course_id,"$or":[{"instructor_id":user_id}, {"learners_id": {"$in": [user_id]}}]})
+    
+    course_model_dict = course_model.dict() 
+    
+    course_model_dict["user_in_course"] = True if user_is_in_course else False
     async def event_generator():
-
-        yield json.dumps({"data_name": "course", "data": course_model.dict()})
+        
         # while True:
-        #     # If client closes connection, stop sending events
+        #     If client closes connection, stop sending events
         #     if await request.is_disconnected():
         #         break
+        #     try:
+        try:
+            yield json.dumps({"data_name": "course", "data":course_model_dict })
+            user_model = await get_user_information(course_model.instructor_id)
+            yield json.dumps({"data_name":"user","data": user_model.dict()})
+            
+            contents = await get_content(course_id=course_model.id)
+            
+            yield json.dumps({"data_name":"contents","data": contents})
+            yield json.dumps({"data_name":"end","data":None})
+        except Exception as exp:
+            yield json.dumps({"data_name":"end"})
+            # except Exception as exp:
+            #     break
+        #Checks for new messages and return them to client if any
 
-        # Checks for new messages and return them to client if any
-
-        user_model = await get_user_information(course_model.instructor_id)
-        yield json.dumps({"data_name":"user","data": user_model.dict()})
-        contents = await get_content(course_id=course_model.id)
-        yield json.dumps({"data_name":"contents","data": contents})
+       
 
     return EventSourceResponse(event_generator())
 #get for user
