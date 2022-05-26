@@ -44,16 +44,16 @@ app.add_middleware(GZipMiddleware, minimum_size=1000)
 #mounting static file resourse
 app.mount("/static-files", StaticFiles(directory="static-files"), name="staticFile")
 
-@app.on_event("startup")
-def startup():
-    redis_cache = FastApiRedisCache()
-    redis_cache.init(
-        host_url=os.environ.get("REDIS_URL", LOCAL_REDIS_URL),
-        prefix="eduvn-cache",
-        response_header="EduVN-Cache",
-        ignore_arg_types=[Request, Response]
-    )
+# @app.on_event("startup")
+# def startup():
+#     redis_cache = FastApiRedisCache()
+#     redis_cache.init(
+#         host_url=os.environ.get("REDIS_URL", LOCAL_REDIS_URL),
+#         prefix="eduvn-cache",
+#         response_header="EduVN-Cache",
+#         ignore_arg_types=[Request, Response]
+#     )
 
 if __name__ == '__main__':
-    uvicorn.run("main:app",host='0.0.0.0',port=9920,reload=True)
+    uvicorn.run("main:app",host='127.0.0.1',port=9920,reload=True)
     
